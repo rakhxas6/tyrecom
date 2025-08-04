@@ -1,0 +1,200 @@
+import React, { useState } from "react";
+import { Fade as Hamburger } from "hamburger-react";
+import { FaPhoneAlt } from "react-icons/fa";
+
+import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
+import { AiOutlineClose } from "react-icons/ai";
+import logo from "../assets/logo.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import { FiSearch } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navList = [
+    { name: "Home", path: "/" },
+    {
+      name: "Tyres",
+      path: "/tyres",
+      dropdown: [
+        { name: "By Brands", path: "/tyres/brands" },
+        { name: "By Size", path: "/tyres/size" },
+        { name: "By Width", path: "/tyres/width" },
+      ],
+    },
+    { name: "Wheels", path: "/tyres/wheels" },
+    { name: "Batteries", path: "/tyres/batteries" },
+    { name: "About Us", path: "/about" },
+    { name: "Contact Us", path: "/contact" },
+  ];
+
+  const navigate = useNavigate();
+  const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
+
+  const toggleDropdown = (index) => {
+    if (openDropdownIndex === index) {
+      setOpenDropdownIndex(null); // close if already open
+    } else {
+      setOpenDropdownIndex(index); // open new dropdown
+    }
+  };
+
+  useEffect(() => {
+    AOS.init({ duration: 400 }); // 400ms animation duration, adjust as needed
+  }, []);
+  return (
+    <section className="bg-[#FDB819] h-fit relative z-[100]">
+      {/* Top Navbar */}
+      <div className="flex items-center justify-between w-[80vw] mx-auto border-b-2 border-black py-3">
+        <img
+          onClick={() => navigate("/")}
+          src={logo}
+          alt="Company logo"
+          className="h-20 md:h-24 object-contain cursor-pointer"
+        />
+
+        {/* Hamburger Icon */}
+        <div className="md:hidden">
+          <Hamburger
+            toggled={isOpen}
+            toggle={setIsOpen}
+            size={28}
+            aria-label="Toggle navigation"
+          />
+        </div>
+
+        {/* Search Box */}
+        <div className="hidden md:flex w-[40%] relative">
+          <input
+            type="text"
+            name="search"
+            placeholder="Search for Products"
+            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <FiSearch className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-300" />
+        </div>
+
+        {/* Call Now - Desktop */}
+        <div className="hidden md:flex items-center gap-2">
+          <FaPhoneAlt size={20} />
+          <span className="text-lg font-semibold">Call Now: 01-7829421</span>
+        </div>
+      </div>
+
+      {/* Bottom Navbar */}
+      <nav className="flex justify-center items-center">
+        {/* Desktop NavList */}
+        <ul className="hidden md:flex gap-16 list-none items-center justify-center h-16">
+          {navList.map((nav, index) => (
+            <li
+              key={index}
+              className="relative group font-semibold text-[16px]"
+            >
+              <a
+                href={nav.path}
+                className="flex items-center gap-1 transition-colors duration-200"
+              >
+                {nav.name}
+                {nav.dropdown && <RiArrowDropDownLine size={22} />}
+              </a>
+
+              {nav.dropdown && (
+                <ul className="absolute top-full left-0 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-200 bg-white shadow-md mt-0 w-40 z-20">
+                  {nav.dropdown.map((item, idx) => (
+                    <li key={idx}>
+                      <a
+                        href={item.path}
+                        className="block px-4 py-2 hover:bg-gray-100 border-b border-gray-300 last:border-b-0"
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile / Tablet: Show Phone or Menu based on hamburger state */}
+        <div className="md:hidden w-full z-50">
+          <div className="flex justify-center items-center gap-4 h-16">
+            <FaPhoneAlt size={18} />
+            <span className="text-lg font-semibold">Call Now: 01-7829421</span>
+          </div>
+
+          {isOpen && (
+            <div
+              data-aos="fade-left"
+              className="fixed top-0 right-0 h-[70vh] w-1/2 bg-gray-100 shadow-lg z-50 p-6 overflow-auto flex flex-col "
+            >
+              <div className="container flex items-center justify-between">
+                <img
+                  onClick={() => navigate("/")}
+                  src={logo}
+                  alt="Company logo"
+                  className="h-16 object-contain cursor-pointer"
+                />
+                {/* Close Button */}
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="self-end mb-4 text-black hover:text-gray-600"
+                  aria-label="Close menu"
+                >
+                  <AiOutlineClose size={28} />
+                </button>
+              </div>
+
+              {/* Nav items */}
+              {navList.map((nav, index) => (
+                <div key={index} className="text-left mt-1">
+                  <button
+                    href={nav.path}
+                    onClick={() => nav.dropdown && toggleDropdown(index)}
+                    className="flex w-full text-base font-semibold py-2 px-3 rounded items-center justify-between hover:bg-black hover:text-white"
+                    type="button"
+                  >
+                    <a
+                      href={nav.path}
+                      className="flex items-center gap-1 transition-colors duration-200"
+                    >
+                      {nav.name}
+                    </a>
+                    {nav.dropdown && (
+                      <>
+                        {openDropdownIndex === index ? (
+                          <RiArrowDropUpLine size={22} />
+                        ) : (
+                          <RiArrowDropDownLine size={22} />
+                        )}
+                      </>
+                    )}
+                  </button>
+
+                  {nav.dropdown && openDropdownIndex === index && (
+                    <div className="ml-4 text-sm text-gray-700 space-y-1">
+                      {nav.dropdown.map((item, idx) => (
+                        <a
+                          key={idx}
+                          href={item.path}
+                          className="block py-1 px-3 hover:bg-black hover:text-white rounded"
+                        >
+                          {item.name}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </nav>
+    </section>
+  );
+};
+
+export default Navbar;
