@@ -25,7 +25,7 @@ const Footer = () => {
     { name: "Tyres by Brand", path: "/tyres/brand" },
   ];
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 bg-black text-white px-24 py-16 gap-10  mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-4 bg-black text-white px-24 py-16 gap-10 ">
       <div className="logoInfo space-y-4">
         <img
           src={logo}
@@ -50,10 +50,10 @@ const Footer = () => {
         <div className="phoneNo space-y-1">
           <h3 className="text-[#FDB819] text-lg font-semibold">Phone No.</h3>
           <a
-            href="tel:0753300088"
+            href="tel:017829421"
             className="hover:text-[#FDB819] transition-all duration-200 inline-block text-sm md:text-base"
           >
-            0753300088
+            01-7829421
           </a>
         </div>
       </div>
@@ -91,7 +91,6 @@ const Footer = () => {
           ))}
         </ul>
       </div>
-
 
       <div className="Information space-y-4">
         <h2 className="text-[#FDB819] text-2xl font-bold">Tyres</h2>

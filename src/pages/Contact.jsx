@@ -5,7 +5,7 @@ import ContactForm from "../components/ContactForm";
 const Contact = () => {
   return (
     <section
-      className="contactPage w-full max-w-sm sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8"
+      className="contactPage w-full max-w-xs sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8"
       style={{ fontFamily: "Quicksand, sans-serif" }}
     >
       <div className="headingContainer flex flex-col gap-5 border-b border-gray-300">
@@ -42,10 +42,10 @@ const Contact = () => {
             phone no.
           </h3>
           <a
-            href="tel:0753300088"
+            href="tel:017829421"
             className="underline text-slate-500 hover:text-orange-600 transition-all duration-200 inline-block text-sm md:text-base"
           >
-            (071) 3300088
+            (01) 7829421
           </a>
         </div>
       </div>

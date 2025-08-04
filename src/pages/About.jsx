@@ -35,7 +35,7 @@ Our team prioritizes staying connected with our clients, ensuring a personalized
 
   return (
     <section
-      className="contactPage w-full max-w-sm sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8 space-y-6"
+      className="contactPage w-full max-w-xs sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8 space-y-6"
       style={{ fontFamily: "Quicksand, sans-serif" }}
     >
       <div className="headingContainer flex flex-col gap-5 border-b border-gray-300">

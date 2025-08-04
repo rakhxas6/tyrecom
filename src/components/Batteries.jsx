@@ -20,7 +20,7 @@ const Batteries = () => {
   return (
     <div>
       <section
-        className="contactPage w-full max-w-sm sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8 space-y-12"
+        className="contactPage w-full max-w-xs sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8 space-y-12"
         style={{ fontFamily: "Quicksand, sans-serif" }}
       >
         <div className="headingContainer flex flex-col gap-5 space-y-5 ">
