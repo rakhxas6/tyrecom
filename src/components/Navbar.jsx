@@ -33,6 +33,7 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const toggleDropdown = (index) => {
     if (openDropdownIndex === index) {
@@ -45,6 +46,13 @@ const Navbar = () => {
   useEffect(() => {
     AOS.init({ duration: 400 }); // 400ms animation duration, adjust as needed
   }, []);
+
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+    // console.log("Typed:", value);
+  };
+
   return (
     <section className="bg-[#FDB819] h-fit relative z-[100]">
       {/* Top Navbar */}
@@ -62,7 +70,7 @@ const Navbar = () => {
             toggled={isOpen}
             toggle={(toggled) => {
               setIsOpen(toggled);
-              if (!toggled) setOpenDropdownIndex(null); // ✅ close dropdown when menu closes
+              if (!toggled) setOpenDropdownIndex(null); 
             }}
             size={28}
             aria-label="Toggle navigation"
@@ -72,10 +80,12 @@ const Navbar = () => {
         {/* Search Box */}
         <div className="hidden md:flex w-[40%] relative">
           <input
+            value={searchTerm}
+            onChange={handleSearch}
             type="text"
             name="search"
             placeholder="Search for Products"
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="SearchInput w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <FiSearch className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-300" />
         </div>

@@ -1,8 +1,4 @@
-import React, { useEffect } from "react";
 import Slider from "react-slick";
-import AOS from "aos";
-
-import "aos/dist/aos.css";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
@@ -10,13 +6,6 @@ import img1 from "../assets/homeBanner/1.jpg";
 import img2 from "../assets/homeBanner/2.jpg";
 
 const HomeImageCarasoul = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1200,
-      once: false,
-      easing: "ease-in-out",
-    });
-  }, []);
 
   const imgSection = [
     { id: 1, img: img1 },
@@ -29,7 +18,6 @@ const HomeImageCarasoul = () => {
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    afterChange: () => AOS.refresh(), // Re-trigger AOS after each slide
   };
 
   return (
@@ -38,7 +26,6 @@ const HomeImageCarasoul = () => {
         {imgSection.map((item) => (
           <div
             key={item.id}
-            data-aos="zoom-in-up"
             className="w-96 h-96 sm:w-full md:h-screen "
           >
             <img
