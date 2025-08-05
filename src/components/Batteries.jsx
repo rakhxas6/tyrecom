@@ -33,7 +33,7 @@ const Batteries = () => {
                 <img
                   src={battery.img}
                   alt={battery.name}
-                  className="w-full h-full rounded-lg"
+                  className="w-full h-full"
                 />
                 <span className="font-thin text-xl mt-2">{battery.name}</span>
               </div>

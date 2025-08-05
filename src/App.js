@@ -7,17 +7,21 @@ import ScrollToTop from "./ScrollToTop";
 import Contact from "./pages/Contact";
 import Batteries from "./components/Batteries";
 import About from "./pages/About";
+import Tyres from "./components/tyres/Tyres";
+import Wheels from "./components/Wheels";
 
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/tyres/batteries" element={<Batteries />} />
+        <Route path="/tyres/wheels" element={<Wheels />} />
+        <Route path="/tyres" element={<Tyres />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -9,7 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { FiSearch } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +60,10 @@ const Navbar = () => {
         <div className="md:hidden">
           <Hamburger
             toggled={isOpen}
-            toggle={setIsOpen}
+            toggle={(toggled) => {
+              setIsOpen(toggled);
+              if (!toggled) setOpenDropdownIndex(null); // ✅ close dropdown when menu closes
+            }}
             size={28}
             aria-label="Toggle navigation"
           />
@@ -129,7 +132,7 @@ const Navbar = () => {
           {isOpen && (
             <div
               data-aos="fade-left"
-              className="fixed top-0 right-0 h-[70vh] w-1/2 bg-gray-100 shadow-lg z-50 p-6 overflow-auto flex flex-col "
+              className="fixed top-0 right-0 h-3/4 w-2/3 bg-gray-100 shadow-lg z-50 p-6 overflow-auto flex flex-col"
             >
               <div className="container flex items-center justify-between">
                 <img
@@ -138,52 +141,79 @@ const Navbar = () => {
                   alt="Company logo"
                   className="h-16 object-contain cursor-pointer"
                 />
-                {/* Close Button */}
                 <button
-                  onClick={() => setIsOpen(false)}
-                  className="self-end mb-4 text-black hover:text-gray-600"
+                  onClick={() => {
+                    setIsOpen(false);
+                    setOpenDropdownIndex(null);
+                  }}
+                  className="self-end mb-4 text-black transition-all duration-75"
                   aria-label="Close menu"
                 >
-                  <AiOutlineClose size={28} />
+                  <AiOutlineClose
+                    size={28}
+                    className="hover:text-red-600 transition-colors duration-150"
+                  />
                 </button>
               </div>
 
-              {/* Nav items */}
               {navList.map((nav, index) => (
                 <div key={index} className="text-left mt-1">
-                  <button
-                    href={nav.path}
-                    onClick={() => nav.dropdown && toggleDropdown(index)}
-                    className="flex w-full text-base font-semibold py-2 px-3 rounded items-center justify-between hover:bg-black hover:text-white"
-                    type="button"
-                  >
-                    <a
-                      href={nav.path}
-                      className="flex items-center gap-1 transition-colors duration-200"
+                  {/* For dropdown items */}
+                  {nav.dropdown ? (
+                    <button
+                      onClick={() => toggleDropdown(index)}
+                      className="flex w-full text-base font-semibold py-2 px-3 rounded items-center justify-between hover:bg-black hover:text-white transition-all"
+                      type="button"
                     >
-                      {nav.name}
-                    </a>
-                    {nav.dropdown && (
-                      <>
-                        {openDropdownIndex === index ? (
-                          <RiArrowDropUpLine size={22} />
-                        ) : (
-                          <RiArrowDropDownLine size={22} />
-                        )}
-                      </>
-                    )}
-                  </button>
+                      {/* Tyres doesn't navigate */}
+                      <span className="flex items-center gap-1 transition-colors duration-200">
+                        {nav.name}
+                      </span>
 
+                      {/* Dropdown arrow */}
+                      {openDropdownIndex === index ? (
+                        <RiArrowDropUpLine size={22} />
+                      ) : (
+                        <RiArrowDropDownLine size={22} />
+                      )}
+                    </button>
+                  ) : (
+                    // For normal links
+                    <Link
+                      to={nav.path}
+                      onClick={() => {
+                        setIsOpen(false);
+                        setOpenDropdownIndex(null);
+                      }}
+                      className="flex w-full text-base font-semibold py-2 px-3 rounded items-center justify-between hover:bg-black hover:text-white "
+                    >
+                      <span className="flex items-center gap-1 transition-colors duration-200 ">
+                        {nav.name}
+                      </span>
+                    </Link>
+                  )}
+
+                  {/* Dropdown menu if applicable */}
                   {nav.dropdown && openDropdownIndex === index && (
-                    <div className="ml-4 text-sm text-gray-700 space-y-1">
+                    <div
+                      className={`ml-4 text-sm text-gray-700 space-y-1 transition-all duration-300 overflow-hidden ${
+                        openDropdownIndex === index
+                          ? "max-h-96 opacity-100"
+                          : "max-h-0 opacity-0"
+                      }`}
+                    >
                       {nav.dropdown.map((item, idx) => (
-                        <a
+                        <Link
                           key={idx}
-                          href={item.path}
+                          to={item.path}
                           className="block py-1 px-3 hover:bg-black hover:text-white rounded"
+                          onClick={() => {
+                            setIsOpen(false);
+                            setOpenDropdownIndex(null);
+                          }}
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
