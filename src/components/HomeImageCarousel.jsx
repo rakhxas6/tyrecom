@@ -5,8 +5,7 @@ import "slick-carousel/slick/slick.css";
 import img1 from "../assets/homeBanner/1.jpg";
 import img2 from "../assets/homeBanner/2.jpg";
 
-const HomeImageCarasoul = () => {
-
+const HomeImageCarousel = () => {
   const imgSection = [
     { id: 1, img: img1 },
     { id: 2, img: img2 },
@@ -18,15 +17,17 @@ const HomeImageCarasoul = () => {
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    dots: true,
+    arrows: false,
   };
 
   return (
-    <div className="slider-container">
+    <div className="w-full overflow-x-hidden">
       <Slider {...settings}>
         {imgSection.map((item) => (
           <div
             key={item.id}
-            className="w-96 h-96 sm:w-full md:h-screen "
+            className="w-full h-[300px] sm:h-[400px] md:h-screen"
           >
             <img
               src={item.img}
@@ -40,4 +41,4 @@ const HomeImageCarasoul = () => {
   );
 };
 
-export default HomeImageCarasoul;
+export default HomeImageCarousel;

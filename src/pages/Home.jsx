@@ -2,11 +2,11 @@ import React from "react";
 import BrandsSection from "../components/BrandsSection";
 import TyreCollection from "../components/TyreCollection";
 import DiscountsPage from "./home/DiscountsPage";
-import HomeImageCarasoul from "../components/HomeImageCarasoul";
+import HomeImageCarasoul from "../components/HomeImageCarousel";
 
 const Home = () => {
   return (
-    <div className="h-auto flex  flex-col space-y-10">
+    <div className=" flex flex-col space-y-10">
       <HomeImageCarasoul />
       <BrandsSection />
       <TyreCollection />

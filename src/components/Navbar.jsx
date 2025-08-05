@@ -70,7 +70,7 @@ const Navbar = () => {
             toggled={isOpen}
             toggle={(toggled) => {
               setIsOpen(toggled);
-              if (!toggled) setOpenDropdownIndex(null); 
+              if (!toggled) setOpenDropdownIndex(null);
             }}
             size={28}
             aria-label="Toggle navigation"
@@ -142,7 +142,7 @@ const Navbar = () => {
           {isOpen && (
             <div
               data-aos="fade-left"
-              className="fixed top-0 right-0 h-3/4 w-2/3 bg-gray-100 shadow-lg z-50 p-6 overflow-auto flex flex-col"
+              className="fixed top-0 right-0 h-[75dvh] w-[75dvw] max-w-xs bg-gray-100 shadow-lg p-6 overflow-y-auto flex flex-col z-[999]"
             >
               <div className="container flex items-center justify-between">
                 <img
