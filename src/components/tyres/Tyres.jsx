@@ -3,9 +3,16 @@ import TyresSection from "./TyresSection";
 
 const Tyres = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 mx-auto px-4 py-10 ">
-      <SelectorSidebar/>
-      <TyresSection />
+    <div className="flex flex-col md:flex-row mx-auto px-10 py-5 md:px-20 md:py-10 gap-6 ">
+      {/* Sidebar */}
+      <div className="md:w-[30%]">
+        <SelectorSidebar />
+      </div>
+
+      {/* Tyres list */}
+      <div className="md:w-[70%]">
+        <TyresSection />
+      </div>
     </div>
   );
 };

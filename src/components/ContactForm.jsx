@@ -21,21 +21,31 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="formSection space-y-4">
-      <h2 className="text-3xl tracking-widest">Contact me</h2>
+    <div className="w-full bg-gradient-to-b from-orange-50 to-white py-12 px-6 sm:px-8 lg:px-16">
+      <div className=" mb-8">
+        <h2 className="text-2xl sm:text-4xl font-bold tracking-wide text-gray-800 relative inline-block">
+          Get in Touch
+          <span className="absolute -bottom-2  left-0 w-20 h-1 bg-orange-500 rounded"></span>
+        </h2>
+        <p className="mt-4 text-sm text-gray-700 max-w-xl">
+          Have any questions or suggestions? Fill out the form and we’ll get
+          back to you as soon as possible.
+        </p>
+      </div>
+
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="space-y-4 w-full max-w-sm sm:max-w-lg md:max-w-5xl mx-auto my-5 sm:my-8 text-[#8d8b8b]"
+        className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700"
       >
         {/* Name */}
         <div className="flex flex-col gap-1">
-          <label htmlFor="name" className="flex gap-2">
+          <label htmlFor="name" className="font-semibold">
             Name<span className="text-red-500">*</span>
           </label>
           <input
             id="name"
             {...register("name", { required: "Name is required" })}
-            className="px-4 py-2 border border-gray-300 "
+            className="px-4 py-3 border border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
           />
           {errors.name && (
             <p className="text-red-500 text-sm">{errors.name.message}</p>
@@ -44,7 +54,7 @@ const ContactForm = () => {
 
         {/* Email */}
         <div className="flex flex-col gap-1">
-          <label htmlFor="email" className="flex gap-2">
+          <label htmlFor="email" className="font-semibold">
             Email<span className="text-red-500">*</span>
           </label>
           <input
@@ -56,16 +66,18 @@ const ContactForm = () => {
                 message: "Invalid email format",
               },
             })}
-            className="px-4 py-2 border border-gray-300 "
+            className="px-4 py-3 border border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
           />
           {errors.email && (
             <p className="text-red-500 text-sm">{errors.email.message}</p>
           )}
         </div>
 
-        {/* Phone with validation */}
+        {/* Phone */}
         <div className="flex flex-col gap-1">
-          <label htmlFor="phone">Phone</label>
+          <label htmlFor="phone" className="font-semibold">
+            Phone<span className="text-red-500">*</span>
+          </label>
           <input
             id="phone"
             {...register("phone", {
@@ -75,7 +87,7 @@ const ContactForm = () => {
                 message: "Phone number must be exactly 10 digits",
               },
             })}
-            className="px-4 py-2 border border-gray-300"
+            className="px-4 py-3 border border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
           />
           {errors.phone && (
             <p className="text-red-500 text-sm">{errors.phone.message}</p>
@@ -83,22 +95,27 @@ const ContactForm = () => {
         </div>
 
         {/* Message */}
-        <div className="flex flex-col gap-1">
-          <label htmlFor="message">Message</label>
+        <div className="flex flex-col gap-1 md:col-span-2">
+          <label htmlFor="message" className="font-semibold">
+            Message
+          </label>
           <textarea
             id="message"
             {...register("message")}
-            className="px-4 py-2 border border-gray-300 "
-            rows={4}
+            rows={5}
+            className="px-4 py-3 border border-gray-300  shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
           />
         </div>
 
-        {/* Submit */}
-        <input
-          type="submit"
-          value="Send Us Message"
-          className="mt-4 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold transition duration-300 shadow-md"
-        />
+        {/* Submit Button */}
+        <div className="md:col-span-2 ">
+          <button
+            type="submit"
+            className="mt-4 px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold  shadow-lg transition duration-300 transform hover:-translate-y-1"
+          >
+            Send Message
+          </button>
+        </div>
       </form>
     </div>
   );

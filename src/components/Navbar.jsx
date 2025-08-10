@@ -29,6 +29,7 @@ const Navbar = () => {
     { name: "Batteries", path: "/tyres/batteries" },
     { name: "About Us", path: "/about" },
     { name: "Contact Us", path: "/contact" },
+    { name: "Learn", path: "/learn" },
   ];
 
   const navigate = useNavigate();

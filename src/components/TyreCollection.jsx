@@ -1,42 +1,42 @@
-import React from "react";
-import triangleTyre from "../assets/tyresCollection/triangle_tyres.png";
 import { useNavigate } from "react-router-dom";
+import { tyres } from "../constants/Product";
+
+import { useTyres } from "../context/TyreContext";
 
 const TyreCollection = () => {
-    const navigate = useNavigate();
-  // Generate an array of 48 identical tyres dynamically
-  const tyreCount = 8;
-  const TyreSection = Array.from({ length: tyreCount }, (_, i) => ({
-    id: i,
-    name: "Triangle 285/45R22 Tyre",
-    logo: triangleTyre,
-  }));
-    
-    const handleNavigate = (id) => {
-      navigate(`/tyres/${id}`);
-    };
+  const navigate = useNavigate();
+  const { setSelectedTyre } = useTyres();
+
+ 
+
+  const slugify = (text) => text
+    .toLowerCase()
+    .replace(/\s+/g, "-"); 
+
+  const handleNavigate = (tyre) => {
+    setSelectedTyre(tyre); // store in context
+    navigate(`/tyres/${slugify(tyre.name)}`);
+  };
 
   return (
-    <section className="w-full max-w-sm sm:max-w-lg md:max-w-7xl mx-auto px-4 py-10 space-y-10">
-      <h1 className="text-3xl sm:text-4xl font-bold text-center">
+    <section className="w-full max-w-sm sm:max-w-lg md:max-w-5xl mx-auto  space-y-10">
+      <h1 className="text-2xl sm:text-3xl font-bold relative">
         Latest Tyre Collection
+        <span className="absolute -bottom-3 left-0 w-16 h-1 bg-orange-500 rounded"></span>
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {TyreSection.map((tyre) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
+        {tyres.map((tyre) => (
           <div
-            onClick={() => handleNavigate(tyre.id)}
+            onClick={() => handleNavigate(tyre)}
             key={tyre.id}
             className="flex flex-col items-center justify-center p-4 border shadow-md hover:shadow-xl transition-shadow duration-300 rounded cursor-pointer"
           >
             <img
-              src={tyre.logo}
+              src={tyre.imageUrl}
               alt={tyre.name}
               className="h-36 sm:h-44 object-contain"
             />
-            <span
-              className="mt-2 text-center font-medium text-gray-600 hover:text-orange-500 transition-colors  "
-              
-            >
+            <span className="mt-2 text-center font-medium text-gray-600 hover:text-orange-500 transition-colors  ">
               {tyre.name}
             </span>
           </div>

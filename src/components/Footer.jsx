@@ -40,7 +40,7 @@ const Footer = () => {
         </p>
 
         <div className="address space-y-1">
-          <h3 className="text-[#FDB819] text-lg font-semibold">Address</h3>
+          <h3 className="text-orange-500 text-lg font-semibold">Address</h3>
           <div className="flex gap-1 flex-col">
             <span className="text-sm md:text-base">35 Lower King St</span>
             <span className="text-sm md:text-base">Caboolture QLD 4510</span>
@@ -48,10 +48,10 @@ const Footer = () => {
         </div>
 
         <div className="phoneNo space-y-1">
-          <h3 className="text-[#FDB819] text-lg font-semibold">Phone No.</h3>
+          <h3 className="text-orange-500 text-lg font-semibold">Phone No.</h3>
           <a
             href="tel:017829421"
-            className="hover:text-[#FDB819] transition-all duration-200 inline-block text-sm md:text-base"
+            className="hover:text-orange-500 transition-all duration-200 inline-block text-sm md:text-base"
           >
             01-7829421
           </a>
@@ -59,13 +59,13 @@ const Footer = () => {
       </div>
 
       <div className="Information space-y-4">
-        <h2 className="text-[#FDB819] text-2xl font-bold">Information</h2>
+        <h2 className="text-orange-500 text-2xl font-bold">Information</h2>
         <ul className="space-y-2">
           {footerList.map((nav, index) => (
             <li key={index} className="list-none font-semibold text-base">
               <a
                 href={nav.path}
-                className="flex items-center gap-1 transition-colors duration-200 hover:text-[#FDB819]"
+                className="flex items-center gap-1 transition-colors duration-200 hover:text-orange-500"
               >
                 {nav.name}
               </a>
@@ -74,7 +74,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className="socialLinks space-y-4">
-        <h2 className="text-[#FDB819] text-2xl font-bold">Social Links</h2>
+        <h2 className="text-orange-500 text-2xl font-bold">Social Links</h2>
         <ul className="space-y-2">
           {socialLinks.map((nav, index) => (
             <li key={index} className="list-none font-semibold text-base">
@@ -82,7 +82,7 @@ const Footer = () => {
                 href={nav.path}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 transition-colors duration-200 hover:text-[#FDB819]"
+                className="flex items-center gap-2 transition-colors duration-200 hover:text-orange-500"
               >
                 {nav.icon}
                 {nav.name}
@@ -93,13 +93,13 @@ const Footer = () => {
       </div>
 
       <div className="Information space-y-4">
-        <h2 className="text-[#FDB819] text-2xl font-bold">Tyres</h2>
+        <h2 className="text-orange-500 text-2xl font-bold">Tyres</h2>
         <ul className="space-y-2">
           {tyresList.map((nav, index) => (
             <li key={index} className="list-none font-semibold text-base">
               <a
                 href={nav.path}
-                className="flex items-center gap-1 transition-colors duration-200 hover:text-[#FDB819]"
+                className="flex items-center gap-1 transition-colors duration-200 hover:text-orange-500"
               >
                 {nav.name}
               </a>

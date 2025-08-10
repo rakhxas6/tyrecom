@@ -45,9 +45,10 @@ const DiscountsPage = () => {
   };
 
   return (
-    <div className="slider-container px-4 sm:px-10 md:px-20 py-10 space-y-10">
-      <h1 className="text-3xl sm:text-4xl font-bold text-center">
+    <div className="slider-container w-full max-w-sm sm:max-w-lg md:max-w-5xl mx-auto space-y-10">
+      <h1 className="text-2xl sm:text-3xl font-bold relative">
         Special Deals & Discounts
+        <span className="absolute -bottom-3 left-0 w-16 h-1 bg-orange-500 rounded"></span>
       </h1>
       <div className="w-full mx-auto">
         <Slider {...settings}>

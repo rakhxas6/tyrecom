@@ -34,22 +34,23 @@ Our team prioritizes staying connected with our clients, ensuring a personalized
 
 
   return (
-    <section
-      className="contactPage w-full max-w-xs sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8 space-y-6"
-      style={{ fontFamily: "Quicksand, sans-serif" }}
-    >
-      <div className="headingContainer flex flex-col gap-5 border-b border-gray-300">
-        <h2 className="font-thin text-3xl md:text-5xl">About Us</h2>
-        <img
+    <section className="contactPage w-full max-w-xs sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8 space-y-6">
+      <div className="headingContainer flex flex-col gap-5">
+        <h2 className="font-thin text-3xl  relative">
+          About Us{" "}
+          <span className="absolute -bottom-2 left-0 w-16 h-1 bg-orange-500 rounded"></span>
+        </h2>
+
+        {/* <img
           src={aboutUsImg}
           alt="about us demo for now"
           className="mb-6"
           srcset=""
-        />
+        /> */}
       </div>
 
       <div className="infoSection space-y-3">
-        <p>
+        <p className="text-gray-700">
           At Kap’s Tyres, we’re dedicated to providing top-quality tyres at
           unbeatable prices throughout Australia. Our mission is clear: to
           deliver the ideal combination of quality and value across a wide
@@ -57,15 +58,18 @@ Our team prioritizes staying connected with our clients, ensuring a personalized
           more convenient solutions for their tyre needs, we’re here to support
           that journey.
         </p>
-        
-          {infoAbout.map((section) => (
-            <div className="infoWithHeader space-y-3">
-              <h2 className="font-semibold text-xl md:text-2xl">
-                {section.header}
-              </h2>
-              <p>{section.paragraph}</p>
-            </div>
+
+        <div className="space-y-10  ">
+          {infoAbout.map(({ header, paragraph }, idx) => (
+            <section
+              key={idx}
+              className="space-y-3 border-b pb-6 last:border-none"
+            >
+              <h3 className="text-2xl font-semibold">{header}</h3>
+              <p className="whitespace-pre-line text-gray-700">{paragraph}</p>
+            </section>
           ))}
+        </div>
       </div>
     </section>
   );

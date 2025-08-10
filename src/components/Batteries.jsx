@@ -21,11 +21,12 @@ const Batteries = () => {
     <div>
       <section
         className="contactPage w-full max-w-xs sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8 space-y-12"
-        style={{ fontFamily: "Quicksand, sans-serif" }}
       >
         <div className="headingContainer flex flex-col gap-5 space-y-5 ">
-          <h2 className="font-thin text-3xl flex justify-center items-center">
+          <h2 className="font-thin text-3xl  relative">
             Batteries
+            {/* flex justify-center items-center */}
+            <span className="absolute -bottom-2 left-0 w-16 h-1 bg-orange-500 rounded"></span>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {batteryTypes.map((battery) => (
