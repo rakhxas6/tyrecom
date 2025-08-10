@@ -10,6 +10,8 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useNavigate, Link } from "react-router-dom";
+import { useTyres } from "../context/TyreContext";
+// import SearchBox from "./SearchBox";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +36,6 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
-  const [searchTerm, setSearchTerm] = useState("");
 
   const toggleDropdown = (index) => {
     if (openDropdownIndex === index) {
@@ -48,10 +49,21 @@ const Navbar = () => {
     AOS.init({ duration: 400 }); // 400ms animation duration, adjust as needed
   }, []);
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const { searchTyres, filteredTyres, setSelectedTyre } = useTyres();
+
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
-    // console.log("Typed:", value);
+    searchTyres(value); // update context
+  };
+
+  const slugify = (text) => text.toLowerCase().replace(/\s+/g, "-");
+
+  const handleNavigate = (tyre) => {
+    setSelectedTyre(tyre); // store in context
+    navigate(`/tyres/${slugify(tyre.name)}`);
+    setSearchTerm("");
   };
 
   return (
@@ -79,7 +91,46 @@ const Navbar = () => {
         </div>
 
         {/* Search Box */}
-        <div className="hidden md:flex w-[40%] relative">
+        {/* <SearchBox /> */}
+        <div className=" w-[40vw] hidden md:flex justify-center relative">
+          {/* Search Input */}
+          <div className="relative w-full">
+            <input
+              value={searchTerm}
+              onChange={handleSearch}
+              type="text"
+              name="search"
+              placeholder="Search for Products"
+              className="SearchInput w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
+            />
+            <FiSearch className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400" />
+          </div>
+
+          {/* Live Results Section */}
+          {searchTerm.trim() && (
+            <div className="absolute top-full left-0 mt-2 w-full bg-white border border-gray-200 shadow-lg  max-h-60 overflow-y-auto z-50">
+              {filteredTyres.length > 0 ? (
+                filteredTyres.map((tyre) => (
+                  <div
+                    key={tyre.id}
+                    className="px-4 py-2 hover:bg-orange-50 cursor-pointer flex items-center gap-3"
+                    onClick={() => handleNavigate(tyre)}
+                  >
+                    <img
+                      src={tyre.imageUrl}
+                      alt={tyre.name}
+                      className="w-10 h-10 object-contain"
+                    />
+                    <span className="text-gray-700">{tyre.name}</span>
+                  </div>
+                ))
+              ) : (
+                <div className="px-4 py-2 text-gray-500">No tyres found</div>
+              )}
+            </div>
+          )}
+        </div>
+        {/* <div className="hidden md:flex w-[40%] relative">
           <input
             value={searchTerm}
             onChange={handleSearch}
@@ -89,7 +140,7 @@ const Navbar = () => {
             className="SearchInput w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <FiSearch className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-300" />
-        </div>
+        </div> */}
 
         {/* Call Now - Desktop */}
         <div className="hidden md:flex items-center gap-2">

@@ -31,7 +31,7 @@ const BrandsSection = () => {
   };
 
   return (
-    <section className="w-full max-w-sm sm:max-w-lg md:max-w-5xl mx-auto space-y-10">
+    <section className="w-full max-w-xs sm:max-w-lg md:max-w-5xl mx-auto space-y-10">
       <h1 className="title text-2xl sm:text-3xl relative font-bold">
         Tyre by Brands
         <span className="absolute -bottom-3 left-0 w-16 h-1 bg-orange-500 rounded"></span>

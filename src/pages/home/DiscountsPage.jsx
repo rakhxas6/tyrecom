@@ -45,7 +45,7 @@ const DiscountsPage = () => {
   };
 
   return (
-    <div className="slider-container w-full max-w-sm sm:max-w-lg md:max-w-5xl mx-auto space-y-10">
+    <div className="slider-container w-full max-w-xs sm:max-w-lg md:max-w-5xl mx-auto space-y-10">
       <h1 className="text-2xl sm:text-3xl font-bold relative">
         Special Deals & Discounts
         <span className="absolute -bottom-3 left-0 w-16 h-1 bg-orange-500 rounded"></span>

@@ -13,7 +13,7 @@ const SizeSelector = () => {
     setSelectedAspect,
   } = useFilters();
     return (
-      <section className="w-full max-w-sm sm:max-w-lg md:max-w-5xl mx-auto">
+      <section className="w-full max-w-xs sm:max-w-lg md:max-w-5xl mx-auto">
         <div className="flex flex-col gap-4 mb-8">
           <h1 className="text-3xl font-extrabold text-gray-800">
             Select Your Tyre Size

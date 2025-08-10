@@ -19,7 +19,7 @@ const tyreInformation = [
 
 const tyres = [
   {
-    name: "Triangle 285/45r22 Tyre",
+    name: "Triangle 215/45r18 Tyre",
     category: "Tyres",
     brand: "Triangle",
     rimDiameter: "18 Inch",
