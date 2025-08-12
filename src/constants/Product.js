@@ -1,4 +1,6 @@
+import { FaPhoneAlt, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import triangleTyre from "../assets/tyresCollection/triangle_tyres.png";
+import missionIcon from "../assets/allSeason.png";
 
 const tyreInformation = [
   {
@@ -14,6 +16,31 @@ const tyreInformation = [
     term: "Rim Diameter",
     description:
       "The tyre’s rim diameter is measured in inches taken from the wheel flange where the tyre is seated (bead seat area) to the same point on the opposite side.",
+  },
+];
+
+const contactOptions = [
+  {
+    label: "Call Now",
+    icon: <FaPhoneAlt />,
+    href: "tel:017829421",
+    bg: "bg-orange-500 hover:bg-orange-600",
+  },
+  {
+    label: "Chat on WhatsApp",
+    icon: <FaWhatsapp />,
+    href: "https://wa.me/917829421",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    bg: "bg-green-500 hover:bg-green-600",
+  },
+  {
+    label: "Send Enquiry",
+    icon: <FaEnvelope />,
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=sudhankandel18@gmail.com&su=Website%20enquiry",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    bg: "bg-blue-500 hover:bg-blue-600",
   },
 ];
 
@@ -49,4 +76,89 @@ const aspects = ["45", "50", "55", "60", "65", "70", "75"];
 
 const brands = ["MRF", "CEAT", "Yokohama", "Bridgestone", "Apollo", "Michelin"];
 
-export { tyreInformation, widths, diameters, aspects, brands, tyres };
+const infoAbout = [
+  {
+    header: "Effortless Fleet Management with Kap’s Tyres",
+    paragraph: `Our mobile tyre services cover a variety of vehicles, including
+        cars, 4x4s, SUVs, motorcycles, vans, quads, motorhomes, and beyond.
+        We also serve heavy-duty needs for trucks, construction, agricultural,
+        industrial, and utility vehicles, accommodating nearly all brands and types of tyres.
+        We work with individuals, businesses, and communities, providing tailored, top-quality service at every step.
+        Our team prioritizes staying connected with our clients, ensuring a personalized experience that addresses each unique need.`,
+  },
+  {
+    header: "Kap’s Tyres: Reliable Experts in Tyre Services",
+    paragraph: `Combining traditional skills with the latest technology, Kap’s Tyres offers an extensive range of tyres with a focus on safety. With a constantly updated inventory from major brands, we bring quality at competitive prices. Our commitment to expanding our mobile tyre services means that our customers can access an even broader range of services. With a loyal clientele, we’ve implemented strategies to ensure you get the best tyres, prioritizing high safety standards for all.`,
+  },
+  {
+    header: "Staying Ahead with Kap’s Tyres",
+    paragraph: `Equipped with advanced tools and technology, we meet the highest safety and quality standards in tyre fitting and replacement. Our status as tyre experts guarantees reliability and enhances your vehicle’s safety. Contact us for an estimate and experience peace of mind with every drive—because safe driving should be accessible and affordable.`,
+  },
+  {
+    header: "Staying Ahead with Kap’s Tyres",
+    paragraph: `With years of experience in tyre repair, our professionals provide the best mobile tyre services, ready to advise you on extending the life of your tyres and vehicle. Our services include inspection, puncture repair, onsite fitting, tyre recycling, rotation services, and expert guidance in choosing the right tyres. Whether you need a replacement or a service, count on Kap’s Tyres for excellence.`,
+  },
+  {
+    header: "Our Story",
+    paragraph: `Every day at Kap’s Tyres, we strive to be our best. It’s an approach that keeps us focused and prepared for the next challenge. Our unique offering is 24/7 mobile tyre services, keeping customers moving around the clock. With specialized expertise in Off-The-Road tyres, we work with nearly every major tyre brand. We seize every opportunity to keep you on the road, with our sights set on expanding our reach and impact across Australia.`,
+  },
+];
+
+const teamMembers = [
+  {
+    name: "Manoj Paudel",
+    role: "CEO & President",
+    img: "https://randomuser.me/api/portraits/men/35.jpg",
+  },
+  {
+    name: "Sudhan Kandel",
+    role: "Project Manager",
+    img: "https://randomuser.me/api/portraits/men/32.jpg",
+  },
+  {
+    name: "Anita Sharma",
+    role: "Lead Developer",
+    img: "https://randomuser.me/api/portraits/women/44.jpg",
+  },
+  {
+    name: "Ramesh Thapa",
+    role: "UI/UX Designer",
+    img: "https://randomuser.me/api/portraits/men/56.jpg",
+  },
+  {
+    name: "Pooja Gurung",
+    role: "QA Engineer",
+    img: "https://randomuser.me/api/portraits/women/65.jpg",
+  },
+];
+
+const ourMission = [
+  {
+    title: "Our Mission",
+    image: missionIcon,
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quos sit cumque veniam modi quo, iste ad. Minima, incidunt. Obcaecati?",
+  },
+  {
+    title: "Our Vision",
+    image: missionIcon,
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quos sit cumque veniam modi quo, iste ad. Minima, incidunt. Obcaecati?",
+  },
+  {
+    title: "Our Values",
+    image: missionIcon,
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quos sit cumque veniam modi quo, iste ad. Minima, incidunt. Obcaecati?",
+  },
+];
+
+export {
+  tyreInformation,
+  widths,
+  diameters,
+  aspects,
+  brands,
+  tyres,
+  infoAbout,
+  teamMembers,
+  ourMission,
+  contactOptions,
+};

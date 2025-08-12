@@ -5,6 +5,7 @@ import Winter from "../assets/winter.png";
 import Summer from "../assets/summer.png";
 import tyreSidewall from "../assets/tyreSideWall.png";
 import loadIndexChart from "../assets/load-index-chart.png";
+import Breadcrumb from "./BreadCrumb";
 
 const Learn = () => {
   const seasonTyresInfo = [
@@ -76,16 +77,18 @@ const Learn = () => {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-10 space-y-16">
+    <section className="w-full  md:px-24 md:py-16 mx-auto px-12 py-8 space-y-5">
+      <Breadcrumb />
+
       {/* Header Image and Title */}
-      <header className="relative w-full mx-auto max-w-5xl rounded-lg overflow-hidden shadow-lg">
+      <header className="relative w-full mx-auto max-w-5xl  overflow-hidden shadow-lg">
         <img
           src={image}
           alt="Choosing the right tire"
           className="w-full h-64 sm:h-80 object-cover"
           loading="lazy"
         />
-        <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl sm:text-4xl font-bold uppercase bg-black bg-opacity-40 tracking-wide">
+        <h1 className="absolute inset-0 flex items-center justify-center text-white text-xl md:text-2xl sm:text-4xl font-bold uppercase bg-black bg-opacity-40 tracking-wide">
           Choosing the Right Tire
         </h1>
       </header>

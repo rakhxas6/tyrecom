@@ -1,73 +1,126 @@
-import aboutUsImg from "../assets/about-us.png";
-
+import aboutUsImg from "../assets/batteries/truck_battery_1_16122024-768x512.jpg";
+import Breadcrumb from "../components/BreadCrumb";
+import { teamMembers ,ourMission} from "../constants/Product";
 
 const About = () => {
-
-    const infoAbout = [
-      {
-        header: "Effortless Fleet Management with Kap’s Tyres",
-        paragraph: `Our mobile tyre services cover a variety of vehicles, including
-cars, 4x4s, SUVs, motorcycles, vans, quads, motorhomes, and beyond.
-We also serve heavy-duty needs for trucks, construction, agricultural,
-industrial, and utility vehicles, accommodating nearly all brands and types of tyres.
-We work with individuals, businesses, and communities, providing tailored, top-quality service at every step.
-Our team prioritizes staying connected with our clients, ensuring a personalized experience that addresses each unique need.`,
-      },
-      {
-        header: "Kap’s Tyres: Reliable Experts in Tyre Services",
-        paragraph: `Combining traditional skills with the latest technology, Kap’s Tyres offers an extensive range of tyres with a focus on safety. With a constantly updated inventory from major brands, we bring quality at competitive prices. Our commitment to expanding our mobile tyre services means that our customers can access an even broader range of services. With a loyal clientele, we’ve implemented strategies to ensure you get the best tyres, prioritizing high safety standards for all.`,
-      },
-      {
-        header: "Staying Ahead with Kap’s Tyres",
-        paragraph: `Equipped with advanced tools and technology, we meet the highest safety and quality standards in tyre fitting and replacement. Our status as tyre experts guarantees reliability and enhances your vehicle’s safety. Contact us for an estimate and experience peace of mind with every drive—because safe driving should be accessible and affordable.`,
-      },
-      {
-        header: "Staying Ahead with Kap’s Tyres",
-        paragraph: `With years of experience in tyre repair, our professionals provide the best mobile tyre services, ready to advise you on extending the life of your tyres and vehicle. Our services include inspection, puncture repair, onsite fitting, tyre recycling, rotation services, and expert guidance in choosing the right tyres. Whether you need a replacement or a service, count on Kap’s Tyres for excellence.`,
-      },
-      {
-        header: "Our Story",
-        paragraph: `Every day at Kap’s Tyres, we strive to be our best. It’s an approach that keeps us focused and prepared for the next challenge. Our unique offering is 24/7 mobile tyre services, keeping customers moving around the clock. With specialized expertise in Off-The-Road tyres, we work with nearly every major tyre brand. We seize every opportunity to keep you on the road, with our sights set on expanding our reach and impact across Australia.`,
-      },
-    ];
-
-
-
   return (
-    <section className="contactPage w-full max-w-xs sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8 space-y-6">
+    <section className="contactPage w-full md:px-24 md:py-16 mx-auto px-12 py-8 space-y-6">
+      <Breadcrumb />
+
       <div className="headingContainer flex flex-col gap-5">
         <h2 className="font-thin text-3xl  relative">
           About Us{" "}
           <span className="absolute -bottom-2 left-0 w-16 h-1 bg-orange-500 rounded"></span>
         </h2>
-
-        {/* <img
-          src={aboutUsImg}
-          alt="about us demo for now"
-          className="mb-6"
-          srcset=""
-        /> */}
       </div>
 
-      <div className="infoSection space-y-3">
-        <p className="text-gray-700">
-          At Kap’s Tyres, we’re dedicated to providing top-quality tyres at
-          unbeatable prices throughout Australia. Our mission is clear: to
-          deliver the ideal combination of quality and value across a wide
-          selection of tyres and related services. As motorists shift towards
-          more convenient solutions for their tyre needs, we’re here to support
-          that journey.
-        </p>
+      <div className="aboutCompany grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="about-left overflow-hidden">
+          <img
+            src={aboutUsImg}
+            alt="our company"
+            className="about-img hover:scale-105 transition duration-100"
+          />
+        </div>
+        <div className="about-right">
+          <h3>ABOUT UNIVERSITY</h3>
 
-        <div className="space-y-10  ">
-          {infoAbout.map(({ header, paragraph }, idx) => (
-            <section
-              key={idx}
-              className="space-y-3 border-b pb-6 last:border-none"
+          <p>
+            Embark on a transformative educational journey with our university's
+            comprehensive education programs. Our cutting-edge curriculum is
+            designed to empower students with the knowledge, skills, and
+            experiences needed to excel in the dynamic field of education.
+          </p>
+        </div>
+      </div>
+
+      {/* aboutTeamMembers */}
+      <div className="aboutTeamMembers flex flex-col justify-center items-center gap-14 ">
+        {/* Heading */}
+        <div>
+          <h3 className="text-3xl font-semibold mb-6 text-gray-800 relative inline-block">
+            Leadership
+            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-orange-500 rounded"></span>
+          </h3>
+        </div>
+
+        {/* Tier 1 - CEO & President */}
+        <div className="about-right grid w-full sm:w-auto gap-8">
+          {teamMembers
+            .filter((member) =>
+              ["ceo", "president"].some((keyword) =>
+                member.role.toLowerCase().includes(keyword)
+              )
+            )
+            .map(({ name, role, img }) => (
+              <div
+                key={name}
+                className="team-member flex flex-col items-center bg-white shadow-md p-6  border-r-4 border-orange-500  hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
+                <img
+                  src={img}
+                  alt={`${name} profile`}
+                  className="w-52 h-52 rounded-full object-cover mb-4"
+                  loading="lazy"
+                />
+                <h4 className="text-lg font-medium text-gray-900">{name}</h4>
+                <p className="text-sm text-orange-500">{role}</p>
+              </div>
+            ))}
+        </div>
+
+        {/* Tier 2 - Other Leadership Members */}
+        <div className="about-right grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full max-w-6xl">
+          {teamMembers
+            .filter(
+              (member) =>
+                !["ceo", "president"].some((keyword) =>
+                  member.role.toLowerCase().includes(keyword)
+                )
+            )
+            .map(({ name, role, img }) => (
+              <div
+                key={name}
+                className="team-member flex flex-col items-center bg-white shadow-md p-5  border-r-4 border-orange-500  hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
+                <img
+                  src={img}
+                  alt={`${name} profile`}
+                  className="w-48 h-48 rounded-full object-cover mb-4"
+                  loading="lazy"
+                />
+                <h4 className="text-lg font-medium text-gray-900">{name}</h4>
+                <p className="text-sm text-orange-500">{role}</p>
+              </div>
+            ))}
+        </div>
+      </div>
+
+      {/* Mission,Vision and Values Section */}
+      <div className="aboutMission flex flex-col justify-center items-center gap-14">
+        {/* Heading */}
+        <div>
+          <h3 className="text-3xl font-semibold mb-6 text-gray-800 relative inline-block">
+            Our Values
+            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-orange-500 rounded"></span>
+          </h3>
+        </div>
+
+        <div className="about-right grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 w-full max-w-6xl">
+          {ourMission.map(({ title, desc, image }) => (
+            <div
+              key={title}
+              className="team-member flex flex-col items-center bg-white shadow-md p-5 border-r-4 border-orange-500  hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <h3 className="text-2xl font-semibold">{header}</h3>
-              <p className="whitespace-pre-line text-gray-700">{paragraph}</p>
-            </section>
+              <img
+                src={image}
+                alt={`${title} profile`}
+                className="w-48 h-48 rounded-full object-cover mb-4"
+                loading="lazy"
+              />
+              <h4 className="text-lg font-medium text-gray-900">{title}</h4>
+              <p className="text-sm text-orange-500 text-center">{desc}</p>
+            </div>
           ))}
         </div>
       </div>

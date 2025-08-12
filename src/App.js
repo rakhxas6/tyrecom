@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// components imports
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -10,10 +12,15 @@ import Tyres from "./components/tyres/Tyres";
 import TyresDropdown from "./components/tyres/tyresDropdown";
 import Wheels from "./components/Wheels";
 import Learn from "./components/Learn";
-import "./App.css";
-import { FilterProvider } from "./context/FilterContext";
 import TyreFullPage from "./components/tyres/TyreFullPage";
+import Header from "./components/Header";
+import NotFound from "./pages/NotFound";
+import "./App.css";
+
+// context imports
+import { FilterProvider } from "./context/FilterContext";
 import { TyreProvider } from "./context/TyreContext";
+import Gallery from "./components/Gallery";
 
 function App() {
   return (
@@ -21,7 +28,7 @@ function App() {
       <TyreProvider>
         <FilterProvider>
           <ScrollToTop />
-          <Navbar />
+          <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
@@ -30,10 +37,10 @@ function App() {
             <Route path="/tyres/wheels" element={<Wheels />} />
             <Route path="/tyres" element={<Tyres />} />
             <Route path="/tyres/:brand/:slug" element={<TyreFullPage />} />
-            <Route path="/tyres/size" element={<TyresDropdown />} />
-            <Route path="/tyres/brands" element={<TyresDropdown />} />
-            <Route path="/tyres/width" element={<TyresDropdown />} />
+            <Route path="/tyres/types" element={<TyresDropdown />} />
             <Route path="/learn" element={<Learn />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </FilterProvider>

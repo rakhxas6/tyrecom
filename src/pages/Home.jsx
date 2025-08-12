@@ -7,7 +7,7 @@ import SizeSelector from "../components/tyres/SizeSelector";
 
 const Home = () => {
   return (
-    <div className="flex flex-col space-y-10 mb-10">
+    <div className="flex flex-col space-y-10 mb-10 ">
       <HomeImageCarasoul />
       <SizeSelector/>
       <BrandsSection />

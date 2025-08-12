@@ -1,11 +1,9 @@
-import React from "react";
-import contactUsImg from "../assets/image30.png";
 import ContactForm from "../components/ContactForm";
 
 const Contact = () => {
   return (
     <section
-      className="contactPage w-full max-w-xs sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8"
+      className="contactPage w-full px-14 py-8 md:px-24 md:py-16 mx-auto space-y-10"
       // style={{ fontFamily: "Quicksand, sans-serif" }}
     >
       <div className="headingContainer flex flex-col gap-5">

@@ -6,6 +6,7 @@ import solarBattery from "../assets/batteries/solar_batteries_2-768x576.jpg";
 import bikeBattery from "../assets/batteries/motorcycle_battery_1_16122024-768x511.jpg";
 import tractorBattery from "../assets/batteries/tractor_battery_1_16122024-768x512.jpg";
 import lithiumBattery from "../assets/batteries/lithium_battery_1_16122024-768x512.jpg";
+import Breadcrumb from "./BreadCrumb";
 
 const Batteries = () => {
   const batteryTypes = [
@@ -19,9 +20,9 @@ const Batteries = () => {
 
   return (
     <div>
-      <section
-        className="contactPage w-full max-w-xs sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8 space-y-12"
-      >
+      <section className="contactPage w-full max-w-xs sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8 space-y-5">
+        <Breadcrumb />
+
         <div className="headingContainer flex flex-col gap-5 space-y-5 ">
           <h2 className="font-thin text-3xl  relative">
             Batteries

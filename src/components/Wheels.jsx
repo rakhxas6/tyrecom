@@ -4,6 +4,7 @@ import ceatTyres from "../assets/tyresCompany/CEAT-tyres-logo.webp";
 import YokoHamaTyres from "../assets/tyresCompany/yokohama-tyres-logo.webp";
 import appoloTyres from "../assets/tyresCompany/apollo-tyres-logo.webp";
 import ContactForm from "./ContactForm";
+import Breadcrumb from "./BreadCrumb";
 
 const Wheels = () => {
    const imgSection = [
@@ -33,7 +34,9 @@ const Wheels = () => {
     
   return (
     <div>
-      <section className="contactPage w-full max-w-xs sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8 space-y-12">
+      <section className="contactPage w-full max-w-xs sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8 space-y-5">
+        <Breadcrumb />
+
         <div className="headingContainer flex flex-col gap-5 space-y-5 ">
           <h2 className="font-thin text-3xl   relative">
             {/* flex justify-center items-center */}

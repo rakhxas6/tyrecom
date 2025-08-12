@@ -54,7 +54,7 @@ const SelectorSidebar = () => {
             <select
               value={selectedBrand}
               onChange={(e) => setSelectedBrand(e.target.value)}
-              className="w-full border rounded p-2 pr-10 appearance-none"
+              className="w-full border  p-2 pr-10 appearance-none"
             >
               <option value="">Select Brand</option>
               {brands.map((b) => (
@@ -92,7 +92,7 @@ const SelectorSidebar = () => {
                   <button
                     key={w}
                     onClick={() => handleWidthClick(w)}
-                    className={`border rounded p-2 text-center transition ${
+                    className={`border  p-2 text-center transition ${
                       selectedWidth === w
                         ? "bg-orange-500 text-white shadow-lg"
                         : "bg-white hover:bg-orange-100"
@@ -126,7 +126,7 @@ const SelectorSidebar = () => {
               <button
                 key={d}
                 onClick={() => setSelectedDiameter(d)}
-                className={`border rounded p-2 text-center ${
+                className={`border  p-2 text-center ${
                   selectedDiameter === d
                     ? "bg-orange-500 text-white"
                     : "bg-white hover:bg-orange-100"
@@ -154,7 +154,7 @@ const SelectorSidebar = () => {
               <button
                 key={a}
                 onClick={() => setSelectedAspect(a)}
-                className={`border rounded p-2 text-center ${
+                className={`border  p-2 text-center ${
                   selectedAspect === a
                     ? "bg-orange-500 text-white"
                     : "bg-white hover:bg-orange-100"
@@ -169,7 +169,7 @@ const SelectorSidebar = () => {
 
       {/* CLEAR BUTTON */}
       <button
-        className="mt-4 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold transition duration-300 shadow-md text-center rounded-lg"
+        className="mt-4 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold transition duration-300 shadow-md text-center "
         onClick={() => {
           clearFilters();
           navigate("/tyres");

@@ -1,12 +1,18 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import tyreInfo from "../../assets/learn-about-tyre-sizes-1.webp";
 import { diameters, tyreInformation, widths } from "../../constants/Product";
 import { useFilters } from "../../context/FilterContext";
 import BrandsSection from "../BrandsSection";
 import SizeSelector from "./SizeSelector";
+import { useEffect, useRef } from "react";
 
 const TyresDropdown = () => {
   const navigate = useNavigate();
+  const location = useLocation()
+  const widthRef = useRef();
+  const diameterRef = useRef();
+  const brandRef = useRef();
+
   const {
     selectedWidth,
     setSelectedWidth,
@@ -16,7 +22,26 @@ const TyresDropdown = () => {
 
   const handleWidthClick = (width) => {
     setSelectedWidth(width);
-    navigate(`/tyres#width?selectedWidth=${width}`);
+    navigate(`/tyres?selectedWidth=${width}#width`);
+  };
+
+  const handleDiameterClick = (diameter) => {
+    setSelectedDiameter(diameter);
+    navigate(`/tyres?selectedDiameter=${diameter}#diameter`);
+  };
+
+    useEffect(() => {
+      if (location.hash === "#width") {
+        scrollToSection(widthRef);
+      } else if (location.hash === "#diameter") {
+        scrollToSection(diameterRef);
+      } else if (location.hash === "#brand") {
+        scrollToSection(brandRef);
+      }
+    }, [location.hash]);
+
+  const scrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -49,7 +74,7 @@ const TyresDropdown = () => {
       </div>
 
       {/* Quick Search by Width */}
-      <div id="width" className="mb-12">
+      <div ref={widthRef} id="width" className="mb-12">
         <h2 className="text-xl font-bold mb-4">Search tyre by width</h2>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
           {widths.map((w) => (
@@ -70,14 +95,14 @@ const TyresDropdown = () => {
       </div>
 
       {/* Quick Search by Diameter */}
-      <div id="diameter" className="mb-12">
+      <div ref={diameterRef} id="diameter" className="mb-12">
         <h2 className="text-xl font-bold mb-4">Search tyre by Rim Diameter</h2>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
           {diameters.map((d) => (
             <button
               key={d}
               type="button"
-              onClick={() => setSelectedDiameter(d)}
+              onClick={() => handleDiameterClick(d)}
               className={`border rounded-lg py-2 px-4 text-center font-medium transition ${
                 selectedDiameter === d
                   ? "bg-orange-500 text-white shadow"
@@ -91,7 +116,9 @@ const TyresDropdown = () => {
       </div>
 
       {/* Brands Section */}
-      <BrandsSection />
+      <div ref={brandRef}>
+        <BrandsSection />
+      </div>
     </section>
   );
 };

@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import { useTyres } from "../../context/TyreContext";
-import { FaPhoneAlt, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import InnerImageZoom from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/styles.min.css";
+import { useNavigate } from "react-router-dom";
+import { contactOptions } from "../../constants/Product";
+import { useTyres } from "../../context/TyreContext";
 
 const TyreFullPage = () => {
   const navigate = useNavigate();
@@ -78,29 +78,18 @@ const TyreFullPage = () => {
               Connect with us
             </h2>
             <div className="cta grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <a
-                href="tel:017829421"
-                className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-md shadow-sm flex items-center justify-center gap-2 transition"
-              >
-                <FaPhoneAlt />
-                Call Now
-              </a>
-              <a
-                href="https://wa.me/917829421"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-md shadow-sm flex items-center justify-center gap-2 transition"
-              >
-                <FaWhatsapp />
-                Chat on WhatsApp
-              </a>
-              <a
-                href="mailto:info@yourcompany.com"
-                className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-md shadow-sm flex items-center justify-center gap-2 transition"
-              >
-                <FaEnvelope />
-                Send Enquiry
-              </a>
+              {contactOptions.map((option, index) => (
+                <a
+                  key={index}
+                  href={option.href}
+                  target={option.target}
+                  rel={option.rel}
+                  className={`px-6 py-3 ${option.bg} text-white font-medium shadow-sm flex items-center justify-center gap-2 transition`}
+                >
+                  {option.icon}
+                  {option.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>
