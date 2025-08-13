@@ -22,12 +22,12 @@ const TyresDropdown = () => {
 
   const handleWidthClick = (width) => {
     setSelectedWidth(width);
-    navigate(`/tyres?selectedWidth=${width}#width`);
+    navigate(`/products/tyres?selectedWidth=${width}#width`);
   };
 
   const handleDiameterClick = (diameter) => {
     setSelectedDiameter(diameter);
-    navigate(`/tyres?selectedDiameter=${diameter}#diameter`);
+    navigate(`/products/tyres?selectedDiameter=${diameter}#diameter`);
   };
 
     useEffect(() => {
@@ -100,7 +100,7 @@ const TyresDropdown = () => {
 
       {/* Quick Search by Diameter */}
       <div ref={diameterRef} id="diameter" className="mb-12">
-        <h2 className="text-xl font-bold mb-4">Search tyre by Rim Diameter</h2>
+        <h2 className="text-xl font-bold mb-4">Search tyre by Diameter</h2>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
           {diameters.map((d) => (
             <button

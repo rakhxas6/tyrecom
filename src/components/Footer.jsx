@@ -19,10 +19,10 @@ const Footer = () => {
       icon: <FaInstagram />,
     },
   ];
-  const tyresList = [
-    { name: "Tyres by Width", path: "/tyres/width" },
-    { name: "Tyres by Size", path: "/tyres/size" },
-    { name: "Tyres by Brand", path: "/tyres/brand" },
+  const productList = [
+    { name: "Wheels", path: "/tyres/wheels" },
+    { name: "Batteries", path: "/products/batteries" },
+    { name: "Tyres", path: "/products/tyres" },
   ];
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 bg-black text-white px-6  md:px-16 py-8 md:py-12 gap-10 ">
@@ -93,9 +93,9 @@ const Footer = () => {
       </div>
 
       <div className="Information space-y-4">
-        <h2 className="text-orange-500 text-2xl font-bold">Tyres</h2>
+        <h2 className="text-orange-500 text-2xl font-bold">Products</h2>
         <ul className="space-y-2">
-          {tyresList.map((nav, index) => (
+          {productList.map((nav, index) => (
             <li key={index} className="list-none font-semibold text-base">
               <a
                 href={nav.path}

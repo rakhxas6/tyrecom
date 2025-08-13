@@ -2,8 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaPlus, FaMinus, FaChevronDown } from "react-icons/fa";
 import { useFilters } from "../../context/FilterContext";
-import { diameters, aspects, widths ,brands} from "../../constants/Product";
-
+import { diameters, aspects, widths, brands } from "../../constants/Product";
 
 const SelectorSidebar = () => {
   const navigate = useNavigate();
@@ -29,14 +28,12 @@ const SelectorSidebar = () => {
   // Search for width
   const [widthSearch, setWidthSearch] = useState("");
 
- 
-
   const filteredWidths = widths.filter((w) => w.includes(widthSearch.trim()));
 
-  const handleWidthClick = (w) => {
-    setSelectedWidth(w);
-    navigate(`/tyres#width?selectedWidth=${w}`);
-  };
+  // const handleWidthClick = (w) => {
+  //   setSelectedWidth(w);
+  //   navigate(`/tyres#width?selectedWidth=${w}`);
+  // };
 
   return (
     <aside className="w-full space-y-6">
@@ -54,7 +51,7 @@ const SelectorSidebar = () => {
             <select
               value={selectedBrand}
               onChange={(e) => setSelectedBrand(e.target.value)}
-              className="w-full border  p-2 pr-10 appearance-none"
+              className="w-full border focus:outline-none focus:ring-2 focus:ring-orange-500  p-2 pr-10 appearance-none"
             >
               <option value="">Select Brand</option>
               {brands.map((b) => (
@@ -84,14 +81,17 @@ const SelectorSidebar = () => {
               placeholder="Search width..."
               value={widthSearch}
               onChange={(e) => setWidthSearch(e.target.value)}
-              className="w-full border p-2 text-sm"
+              className="w-full border p-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
             <div className="grid grid-cols-3 gap-2">
               {filteredWidths.length > 0 ? (
                 filteredWidths.map((w) => (
                   <button
                     key={w}
-                    onClick={() => handleWidthClick(w)}
+                    onClick={() => {
+                      setSelectedWidth(w);
+                      setWidthSearch(w);
+                    }}
                     className={`border  p-2 text-center transition ${
                       selectedWidth === w
                         ? "bg-orange-500 text-white shadow-lg"
@@ -168,15 +168,24 @@ const SelectorSidebar = () => {
       </div>
 
       {/* CLEAR BUTTON */}
-      <button
-        className="mt-4 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold transition duration-300 shadow-md text-center "
-        onClick={() => {
-          clearFilters();
-          navigate("/tyres");
-        }}
-      >
-        Clear
-      </button>
+      <div className="cta flex justify-between">
+        <button
+          className="mt-4 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold transition duration-300 shadow-md text-center "
+          onClick={() => {}}
+        >
+          Search
+        </button>
+
+        <button
+          className="mt-4 px-6 py-3 bg-red-600 hover:bg-red-800 text-white font-semibold transition duration-300 shadow-md text-center "
+          onClick={() => {
+            clearFilters();
+            navigate("/products/tyres");
+          }}
+        >
+          Clear
+        </button>
+      </div>
     </aside>
   );
 };

@@ -61,7 +61,7 @@ const TyreFullPage = () => {
                 <strong>Brand:</strong> {tyre.brand}
               </p>
               <p>
-                <strong>Rim Diameter:</strong> {tyre.rimDiameter}
+                <strong>Diameter:</strong> {tyre.rimDiameter} Inch
               </p>
               <p>
                 <strong>Width:</strong> {tyre.width}

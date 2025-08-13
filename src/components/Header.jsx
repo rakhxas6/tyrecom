@@ -1,25 +1,22 @@
-import React, { useState } from "react";
 import { Fade as Hamburger } from "hamburger-react";
-import { FaPhoneAlt } from "react-icons/fa";
+import { useState } from "react";
 
-import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
-import { AiOutlineClose } from "react-icons/ai";
-import logo from "../assets/logo.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { FiSearch } from "react-icons/fi";
-import { useNavigate, Link } from "react-router-dom";
-import { useTyres } from "../context/TyreContext";
-// import SearchBox from "./SearchBox";
+import { AiOutlineClose } from "react-icons/ai";
+import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
+import SearchBox from "./SearchBox";
+
 
 const Header = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
   const [openNestedDropdownIndex, setOpenNestedDropdownIndex] = useState(null);
-  const { searchTyres, filteredTyres, setSelectedTyre } = useTyres();
+
 
   const navList = [
     { name: "Home", path: "/" },
@@ -67,19 +64,6 @@ const Header = () => {
     AOS.init({ duration: 400 }); // 400ms animation duration, adjust as needed
   }, []);
 
-  const handleSearch = (e) => {
-    const value = e.target.value;
-    setSearchTerm(value);
-    searchTyres(value); // update context
-  };
-
-  const slugify = (text) => text.toLowerCase().replace(/\s+/g, "-");
-
-  const handleNavigate = (tyre) => {
-    setSelectedTyre(tyre); // store in context
-    navigate(`/tyres/${slugify(tyre.name)}`);
-    setSearchTerm("");
-  };
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -100,7 +84,7 @@ const Header = () => {
         />
 
         {/* Navlist */}
-        <ul className="hidden md:flex gap-5 list-none items-center justify-center">
+        <ul className="hidden md:flex gap-4 list-none items-center justify-center">
           {navList.map((nav, index) => (
             <li
               key={index}
@@ -149,44 +133,7 @@ const Header = () => {
         </ul>
 
         {/* <SearchBox /> */}
-        <div className="hidden md:flex  justify-center relative">
-          {/* Search Input */}
-          <div className="relative">
-            <input
-              value={searchTerm}
-              onChange={handleSearch}
-              type="text"
-              name="search"
-              placeholder="Search for Products"
-              className="SearchInput w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
-            <FiSearch className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400" />
-          </div>
-
-          {/* Live Results Section */}
-          {searchTerm.trim() && (
-            <div className="absolute top-full left-0 mt-2 w-full bg-white border border-gray-200 shadow-lg  max-h-60 overflow-y-auto z-50">
-              {filteredTyres.length > 0 ? (
-                filteredTyres.map((tyre) => (
-                  <div
-                    key={tyre.id}
-                    className="px-4 py-2  cursor-pointer flex items-center gap-3"
-                    onClick={() => handleNavigate(tyre)}
-                  >
-                    <img
-                      src={tyre.imageUrl}
-                      alt={tyre.name}
-                      className="w-10 h-10 object-contain"
-                    />
-                    <span className="text-gray-700 text-xs">{tyre.name}</span>
-                  </div>
-                ))
-              ) : (
-                <div className="px-4 py-2 text-gray-500">No tyres found</div>
-              )}
-            </div>
-          )}
-        </div>
+       <SearchBox/>
 
         {/* Hamburger Icon */}
         <div className="md:hidden">
@@ -205,7 +152,6 @@ const Header = () => {
       </div>
 
       {/* Mobile / Tablet: Show Phone or Menu based on hamburger state */}
-      {/* Bottom Navbar */}
       <nav className="flex justify-center items-center">
         <div className="md:hidden w-full z-50">
           {isOpen && (

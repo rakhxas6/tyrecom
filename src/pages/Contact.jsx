@@ -5,7 +5,6 @@ const Contact = () => {
   return (
     <section
       className="contactPage w-full px-6 py-8 md:px-16 md:py-12 mx-auto space-y-6"
-      // style={{ fontFamily: "Quicksand, sans-serif" }}
     >
       <Breadcrumb />
 
@@ -17,7 +16,7 @@ const Contact = () => {
       </div>
       <div className="infoSection my-5 space-y-6">
         <div className="contact space-y-2">
-          {/* <h1 className="text-2xl font-serif tracking-widest">contact us</h1> */}
+          
 
           <p className="text-gray-700">
             Every day at Kap’sTyres, we strive to be the best we can be. It’s an

@@ -13,7 +13,7 @@ const tyreInformation = [
       "The relationship between the tire height and width. In this example, the tire height is approximately 60% of the tire width.",
   },
   {
-    term: "Rim Diameter",
+    term: "Diameter",
     description:
       "The tyre’s rim diameter is measured in inches taken from the wheel flange where the tyre is seated (bead seat area) to the same point on the opposite side.",
   },
@@ -49,7 +49,7 @@ const tyres = [
     name: "Triangle 215/45r18 Tyre",
     category: "Tyres",
     brand: "Triangle",
-    rimDiameter: "18 Inch",
+    rimDiameter: "18",
     width: "215",
     aspectRatio: "45",
     imageUrl: triangleTyre,
