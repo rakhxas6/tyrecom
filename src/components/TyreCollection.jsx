@@ -19,17 +19,17 @@ const TyreCollection = () => {
   };
 
   return (
-    <section className="w-full max-w-xs sm:max-w-lg md:max-w-5xl mx-auto  space-y-10">
+    <section className="w-full  px-6 md:px-16  space-y-10">
       <h1 className="text-2xl sm:text-3xl font-bold relative">
         Latest Tyre Collection
         <span className="absolute -bottom-3 left-0 w-16 h-1 bg-orange-500 rounded"></span>
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6  items-start">
         {tyres.map((tyre) => (
           <div
             onClick={() => handleNavigate(tyre)}
             key={tyre.id}
-            className="flex flex-col items-center justify-center p-4 border shadow-md hover:shadow-xl transition-shadow duration-300 rounded cursor-pointer"
+            className="flex flex-col items-center justify-center p-4 border shadow-md hover:shadow-xl transition-shadow duration-300  cursor-pointer"
           >
             <img
               src={tyre.imageUrl}

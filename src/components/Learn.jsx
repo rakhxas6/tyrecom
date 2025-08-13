@@ -77,28 +77,28 @@ const Learn = () => {
   ];
 
   return (
-    <section className="w-full  md:px-24 md:py-16 mx-auto px-12 py-8 space-y-5">
+    <section className="w-full px-6 py-8 md:px-16 md:py-12 mx-auto space-y-6">
       <Breadcrumb />
 
       {/* Header Image and Title */}
-      <header className="relative w-full mx-auto max-w-5xl  overflow-hidden shadow-lg">
+      <header className="relative w-full mx-auto  overflow-hidden shadow-lg">
         <img
           src={image}
           alt="Choosing the right tire"
           className="w-full h-64 sm:h-80 object-cover"
           loading="lazy"
         />
-        <h1 className="absolute inset-0 flex items-center justify-center text-white text-xl md:text-2xl sm:text-4xl font-bold uppercase bg-black bg-opacity-40 tracking-wide">
+        <h1 className="absolute inset-0 flex items-center justify-center text-white text-sm md:text-2xl sm:text-4xl font-bold uppercase bg-black bg-opacity-40 tracking-wide">
           Choosing the Right Tire
         </h1>
       </header>
 
       {/* Introductory Text */}
-      <article className="space-y-4 max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-extrabold">
+      <article className="space-y-4  mx-auto text-center">
+        <h2 className="text-xl sm:text-3xl font-extrabold">
           How to Choose the Right Tyre for Your Vehicle
         </h2>
-        <h3 className="text-2xl font-semibold text-orange-600">
+        <h3 className=" sm:text-2xl font-semibold text-orange-600">
           Peak Performance for Every Season
         </h3>
         <p className="text-gray-700 leading-relaxed">
@@ -111,7 +111,7 @@ const Learn = () => {
       </article>
 
       {/* Season Tyres Info */}
-      <section className="max-w-6xl mx-auto">
+      <section className=" mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {seasonTyresInfo.map(({ img, point1, point2, title }, idx) => (
             <article
@@ -133,9 +133,9 @@ const Learn = () => {
       </section>
 
       {/* Get to Know Your Tire Section */}
-      <section className="max-w-6xl mx-auto space-y-8">
-        <header className="space-y-3 text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold">Get to Know Your Tire</h2>
+      <section className=" mx-auto space-y-8">
+        <header className="space-y-3 text-center  mx-auto">
+          <h2 className="text-xl md:text-3xl font-bold">Get to Know Your Tire</h2>
           <p className="text-gray-700">
             Your tire’s sidewall contains a lot of valuable information. Here’s
             how to make sense of it:
@@ -143,13 +143,13 @@ const Learn = () => {
           <img
             src={tyreSidewall}
             alt="Sidewall containing vital information"
-            className="w-full max-w-md sm:max-w-2xl mx-auto object-contain rounded-md shadow"
+            className="w-full  mx-auto object-contain rounded-md shadow"
             loading="lazy"
           />
         </header>
 
         {/* Tire Glossary */}
-        <div className="space-y-10 max-w-4xl mx-auto">
+        <div className="space-y-10  mx-auto">
           {tyreInfo.map(({ term, description, image }, idx) => (
             <section
               key={idx}

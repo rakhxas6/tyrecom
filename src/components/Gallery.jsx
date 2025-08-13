@@ -1,95 +1,95 @@
 import React from "react";
+import { photos } from "../constants/Product";
+import Masonry from "react-masonry-css";
+import Breadcrumb from "./BreadCrumb";
 
-const Gallery = () => {
+const GallerySection = () => {
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1,
+  };
+
+  // Get current column count based on screen width
+  const getColumnCount = () => {
+    const width = window.innerWidth;
+    if (width <= 500) return 1;
+    if (width <= 700) return 2;
+    if (width <= 1100) return 3;
+    return 4;
+  };
+
+  // Calculate height based on actual column width
+  const getImageHeight = (photo) => {
+    const totalGutter = 12 * (getColumnCount() - 1); // gutter space
+    const columnWidth =
+      (window.innerWidth - totalGutter - 40) / getColumnCount(); // minus padding (40px approx)
+
+    if (photo.width && photo.height) {
+      return Math.floor((columnWidth * photo.height) / photo.width);
+    }
+
+    // Fallback if dimensions are missing
+    const heights = [250, 300, 180, 400, 220, 350, 280, 320, 200, 450];
+    return heights[photo.id % heights.length];
+  };
+
   return (
-    <section>
-      {/* for gallery section */}
-      <div class="p-5 sm:p-8">
-        <div class="columns-1 gap-2 sm:columns-2 sm:gap-4 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-8">
-          <img
-            src="https://images.unsplash.com/photo-1472491235688-bdc81a63246e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxjYXR8ZW58MHwwfHx8MTcyMTgyMjE3OXww&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="Close-up of a gray cat looking to the side"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxjYXR8ZW58MHwwfHx8MTcyMTgyMjE3OXww&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="Orange cat sitting on a wall outdoors"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1668491195456-9341d9cf3977?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxjYXQlMjB3aGl0ZXxlbnwwfDF8fHwxNzIxODIyMzU3fDA&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="White cat with blue eyes"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1515002246390-7bf7e8f87b54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxM3x8Y2F0fGVufDB8MHx8fDE3MjE4MjIxNzl8MA&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="Tabby cat resting on a wooden surface"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxjYXR8ZW58MHwwfHx8MTcyMTgyMjE3OXww&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="Cute cat with green eyes looking up"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1475518112798-86ae358241eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxMHx8Y2F0fGVufDB8MHx8fDE3MjE4MjIxNzl8MA&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="Sleeping cat curled up"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1498100152307-ce63fd6c5424?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxMXx8Y2F0fGVufDB8MHx8fDE3MjE4MjIxNzl8MA&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="Black and white cat lying down"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1503777119540-ce54b422baff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw5fHxjYXQlMjB3aGl0ZXxlbnwwfDF8fHwxNzIxODIyMzU3fDA&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="White cat looking curiously"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw4fHxjYXR8ZW58MHwwfHx8MTcyMTgyMjE3OXww&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="Cat sitting on a fence"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1502083896352-259ab9e342d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxMnx8Y2F0fGVufDB8MHx8fDE3MjE4MjIxNzl8MA&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="Calico cat sitting in the grass"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1708791793972-cf97ef3c01c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxjYXQlMjB3aGl0ZXxlbnwwfDB8fHwxNzIxODIyMjkwfDA&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="White cat with blue eyes looking upward"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1516470544373-df3edeb89d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw4fHxjYXQlMjB3aGl0ZXxlbnwwfDB8fHwxNzIxODIyMjkwfDA&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="White cat lying on a bed"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1472491235688-bdc81a63246e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxjYXR8ZW58MHwwfHx8MTcyMTgyMjE3OXww&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="Close-up of a gray cat looking to the side"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxjYXR8ZW58MHwwfHx8MTcyMTgyMjE3OXww&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="Orange cat sitting on a wall outdoors"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1517451330947-7809dead78d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw5fHxjYXR8ZW58MHwwfHx8MTcyMTgyMjE3OXww&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="Orange tabby cat with bright eyes"
-            loading="lazy"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1515002246390-7bf7e8f87b54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxM3x8Y2F0fGVufDB8MHx8fDE3MjE4MjIxNzl8MA&ixlib=rb-4.0.3&q=80&w=1080"
-            alt="Tabby cat resting on a wooden surface"
-            loading="lazy"
-          />
-        </div>
+    <section className="p-5 sm:p-8 mx-auto space-y-6 px-6 py-8 md:px-16 md:py-12">
+      <Breadcrumb />
+
+      <div className="headingContainer flex flex-col gap-5">
+        <h2 className="font-thin text-3xl  relative">
+          Glimpses into our Company{" "}
+          <span className="absolute -bottom-2 left-0 w-16 h-1 bg-orange-500 rounded"></span>
+        </h2>
       </div>
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
+        {photos.map((photo) => (
+          <div
+            key={photo.id}
+            className="mb-4 group relative overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+          >
+            <div
+              className="relative overflow-hidden"
+              style={{ height: `${getImageHeight(photo)}px` }}
+            >
+              <img
+                src={photo.src}
+                srcSet={photo.srcSet ? photo.srcSet.join(", ") : undefined}
+                sizes={photo.sizes}
+                alt={photo.alt}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+          </div>
+        ))}
+      </Masonry>
+
+      <style jsx>{`
+        .my-masonry-grid {
+          display: flex;
+          // margin-left: -16px;
+          width: auto;
+        }
+
+        .my-masonry-grid_column {
+          padding-left: 1px;
+          background-clip: padding-box;
+        }
+
+        .my-masonry-grid_column > div {
+          margin-bottom: 1px;
+        }
+      `}</style>
     </section>
   );
 };
 
-export default Gallery;
+export default GallerySection;

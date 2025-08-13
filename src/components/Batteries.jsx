@@ -20,7 +20,7 @@ const Batteries = () => {
 
   return (
     <div>
-      <section className="contactPage w-full max-w-xs sm:max-w-xl md:max-w-5xl mx-auto my-5 sm:my-8 space-y-5">
+      <section className="contactPage w-full px-6 py-8 md:px-16 md:py-12 mx-auto space-y-5">
         <Breadcrumb />
 
         <div className="headingContainer flex flex-col gap-5 space-y-5 ">

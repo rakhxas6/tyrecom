@@ -45,24 +45,28 @@ const TyresDropdown = () => {
   };
 
   return (
-    <section className="w-full max-w-sm sm:max-w-lg md:max-w-5xl mx-auto px-4 py-8">
+    <section className="tyresDropdown w-full px-6 py-8 md:px-16 md:py-12 mx-auto">
       {/* Size Selector */}
+      <div id="selectorSection">
       <SizeSelector />
+      </div>
 
       {/* Info Section */}
-      <div className="space-y-6 text-center mb-12">
+      <div className="space-y-6  mb-12">
         <h2 className="text-3xl font-bold">Get to Know Your Tyre</h2>
         <div className="flex flex-col sm:flex-row items-center gap-6">
-          <img
-            src={tyreInfo}
-            alt="Sidewall containing vital information"
-            className="w-80 object-contain rounded-lg shadow-lg"
-            loading="lazy"
-          />
+          <div className="w-full md:w-1/2">
+            <img
+              src={tyreInfo}
+              alt="Sidewall containing vital information"
+              className="w-full object-contain"
+              loading="lazy"
+            />
+          </div>
 
-          <div className="text-left space-y-4">
+          <div className="text-left space-y-4 w-full md:w-1/2">
             {tyreInformation.map((item, index) => (
-              <div key={index} className="bg-gray-50 p-4 rounded-lg shadow">
+              <div key={index} className="bg-gray-50 p-4 shadow">
                 <h3 className="text-lg font-semibold text-orange-500">
                   {item.term}
                 </h3>
@@ -82,7 +86,7 @@ const TyresDropdown = () => {
               key={w}
               type="button"
               onClick={() => handleWidthClick(w)}
-              className={`border rounded-lg py-2 px-4 text-center font-medium transition ${
+              className={`border  py-2 px-4 text-center font-medium transition ${
                 selectedWidth === w
                   ? "bg-orange-500 text-white shadow"
                   : "bg-white hover:bg-orange-100"
@@ -103,7 +107,7 @@ const TyresDropdown = () => {
               key={d}
               type="button"
               onClick={() => handleDiameterClick(d)}
-              className={`border rounded-lg py-2 px-4 text-center font-medium transition ${
+              className={`border  py-2 px-4 text-center font-medium transition ${
                 selectedDiameter === d
                   ? "bg-orange-500 text-white shadow"
                   : "bg-white hover:bg-orange-100"
@@ -116,7 +120,7 @@ const TyresDropdown = () => {
       </div>
 
       {/* Brands Section */}
-      <div ref={brandRef}>
+      <div ref={brandRef} id="brandSection">
         <BrandsSection />
       </div>
     </section>

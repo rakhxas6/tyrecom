@@ -150,6 +150,71 @@ const ourMission = [
   },
 ];
 
+const photos = [
+  {
+    src: "https://images.unsplash.com/photo-1743701168206-fec7ca13d651?q=80&w=866&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    height: 4,
+    width: 3,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1754404053337-7363006e4391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5OXx8fGVufDB8fHx8fA%3D%3D",
+    height: 2,
+    width: 4,
+  },
+  {
+    src: "https://plus.unsplash.com/premium_photo-1744395627443-fbe46009acef?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    height: 4,
+    width: 3,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1754404053337-7363006e4391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5OXx8fGVufDB8fHx8fA%3D%3D",
+    height: 1,
+    width: 1,
+  },
+  {
+    src: "https://plus.unsplash.com/premium_photo-1744395627443-fbe46009acef?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    height: 1,
+    width: 1,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1754404053337-7363006e4391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5OXx8fGVufDB8fHx8fA%3D%3D",
+    height: 1,
+    width: 1,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1754404053337-7363006e4391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5OXx8fGVufDB8fHx8fA%3D%3D",
+    height: 1,
+    width: 1,
+  },
+  {
+    src: "https://plus.unsplash.com/premium_photo-1744395627443-fbe46009acef?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    height: 1,
+    width: 1,
+  },
+  {
+    src: "https://plus.unsplash.com/premium_photo-1744395627443-fbe46009acef?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    height: 2,
+    width: 3,
+  },
+
+  {
+    src: "https://images.unsplash.com/photo-1754404053337-7363006e4391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5OXx8fGVufDB8fHx8fA%3D%3D",
+    height: 1,
+    width: 1,
+  },
+  {
+    src: "https://images.unsplash.com/photo-1754404053337-7363006e4391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5OXx8fGVufDB8fHx8fA%3D%3D",
+    height: 1,
+    width: 1,
+  },
+  
+  {
+    src: "https://images.unsplash.com/photo-1754404053337-7363006e4391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5OXx8fGVufDB8fHx8fA%3D%3D",
+    height: 1,
+    width: 1,
+  },
+];
+
 export {
   tyreInformation,
   widths,
@@ -161,4 +226,5 @@ export {
   teamMembers,
   ourMission,
   contactOptions,
+  photos,
 };

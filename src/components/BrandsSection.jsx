@@ -31,12 +31,12 @@ const BrandsSection = () => {
   };
 
   return (
-    <section className="w-full max-w-xs sm:max-w-lg md:max-w-5xl mx-auto space-y-10">
+    <section className="w-full px-6 md:px-16 space-y-10">
       <h1 className="title text-2xl sm:text-3xl relative font-bold">
         Tyre by Brands
         <span className="absolute -bottom-3 left-0 w-16 h-1 bg-orange-500 rounded"></span>
       </h1>
-      <div className="imgContainer grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 space-y-4 place-items-center">
+      <div className="imgContainer grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 space-y-4 place-items-start">
         {imgSection.map((img, index) => (
           <div
             key={index}
@@ -48,7 +48,6 @@ const BrandsSection = () => {
               alt={img.companyName}
               className="h-36 sm:h-44 hover:scale-105 object-contain"
             />
-            {/* <span className="text-semibold">{img.companyName}</span> */}
           </div>
         ))}
       </div>

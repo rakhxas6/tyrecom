@@ -13,20 +13,20 @@ const SizeSelector = () => {
     setSelectedAspect,
   } = useFilters();
     return (
-      <section className="w-full max-w-xs sm:max-w-lg md:max-w-5xl mx-auto">
+      <section className="w-full px-6 md:px-16">
         <div className="flex flex-col gap-4 mb-8">
           <h1 className="text-3xl font-extrabold text-gray-800">
             Select Your Tyre Size
           </h1>
 
           {/* Dropdown selectors */}
-          <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col md:flex-row gap-4 md:items-center">
             {/* Width Selector */}
-            <div className="relative w-full md:w-1/3">
+            <div className="relative  ">
               <select
                 value={selectedWidth}
                 onChange={(e) => setSelectedWidth(e.target.value)}
-                className="w-full border rounded-lg p-3 pr-10 appearance-none shadow-sm focus:ring-2 focus:ring-orange-500"
+                className="w-full border  p-3 pr-10 appearance-none shadow-sm focus:ring-2 focus:ring-orange-500"
               >
                 <option value="">Tyre Width</option>
                 {widths.map((w) => (
@@ -39,11 +39,11 @@ const SizeSelector = () => {
             </div>
 
             {/* Diameter Selector */}
-            <div className="relative w-full md:w-1/3">
+            <div className="relative">
               <select
                 value={selectedDiameter}
                 onChange={(e) => setSelectedDiameter(e.target.value)}
-                className="w-full border rounded-lg p-3 pr-10 appearance-none shadow-sm focus:ring-2 focus:ring-orange-500"
+                className="w-full border  p-3 pr-10 appearance-none shadow-sm focus:ring-2 focus:ring-orange-500"
               >
                 <option value="">Rim Diameter (inches)</option>
                 {diameters.map((d) => (
@@ -56,11 +56,11 @@ const SizeSelector = () => {
             </div>
 
             {/* Aspect Selector */}
-            <div className="relative w-full md:w-1/3">
+            <div className="relative">
               <select
                 value={selectedAspect}
                 onChange={(e) => setSelectedAspect(e.target.value)}
-                className="w-full border rounded-lg p-3 pr-10 appearance-none shadow-sm focus:ring-2 focus:ring-orange-500"
+                className="w-full border  p-3 pr-10 appearance-none shadow-sm focus:ring-2 focus:ring-orange-500"
               >
                 <option value="">Aspect Ratio</option>
                 {aspects.map((a) => (
@@ -71,15 +71,14 @@ const SizeSelector = () => {
               </select>
               <FaChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
             </div>
+            {/* Find Button */}
+            <button
+              type="button"
+              className=" bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 shadow-md font-semibold transition"
+            >
+              Find Matching Tyres
+            </button>
           </div>
-
-          {/* Find Button */}
-          <button
-            type="button"
-            className="mt-4 bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-lg shadow-md font-semibold transition"
-          >
-            Find Matching Tyres
-          </button>
         </div>
       </section>
     );

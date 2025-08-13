@@ -27,14 +27,14 @@ const Header = () => {
       name: "Products",
       path: "/products",
       dropdown: [
-        { name: "Wheels", path: "/tyres/wheels" },
-        { name: "Batteries", path: "/tyres/batteries" },
+        { name: "Wheels", path: "/products/wheels" },
+        { name: "Batteries", path: "/products/batteries" },
         {
           name: "Tyres",
-          path: "/tyres",
+          path: "/products/tyres",
           dropdown: [
             { name: "By Brands", path: "/tyres/types#brand" },
-            { name: "By Diameter", path: "/tyres/types#diameter" }, 
+            { name: "By Diameter", path: "/tyres/types#diameter" },
             { name: "By Width", path: "/tyres/types#width" },
           ],
         },

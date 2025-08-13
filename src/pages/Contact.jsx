@@ -1,22 +1,19 @@
+import Breadcrumb from "../components/BreadCrumb";
 import ContactForm from "../components/ContactForm";
 
 const Contact = () => {
   return (
     <section
-      className="contactPage w-full px-14 py-8 md:px-24 md:py-16 mx-auto space-y-10"
+      className="contactPage w-full px-6 py-8 md:px-16 md:py-12 mx-auto space-y-6"
       // style={{ fontFamily: "Quicksand, sans-serif" }}
     >
-      <div className="headingContainer flex flex-col gap-5">
+      <Breadcrumb />
+
+      <div className="headingContainer">
         <h2 className="font-thin text-3xl relative">
           Contact us{" "}
           <span className="absolute -bottom-2 left-0 w-16 h-1 bg-orange-500 rounded"></span>
         </h2>
-        {/* <img
-          src={contactUsImg}
-          alt="contact us demo for now"
-          className="mb-6"
-          srcset=""
-        /> */}
       </div>
       <div className="infoSection my-5 space-y-6">
         <div className="contact space-y-2">

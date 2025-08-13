@@ -25,7 +25,7 @@ const Footer = () => {
     { name: "Tyres by Brand", path: "/tyres/brand" },
   ];
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 bg-black text-white px-14 py-8 md:px-24 md:py-16 gap-10 ">
+    <div className="grid grid-cols-1 md:grid-cols-4 bg-black text-white px-6  md:px-16 py-8 md:py-12 gap-10 ">
       <div className="logoInfo space-y-4">
         <img
           src={logo}

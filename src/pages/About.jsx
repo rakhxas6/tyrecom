@@ -4,7 +4,7 @@ import { teamMembers ,ourMission} from "../constants/Product";
 
 const About = () => {
   return (
-    <section className="contactPage w-full md:px-24 md:py-16 mx-auto px-12 py-8 space-y-6">
+    <section className="contactPage w-full  mx-auto px-6 py-8 md:px-16 md:py-12 space-y-6">
       <Breadcrumb />
 
       <div className="headingContainer flex flex-col gap-5">

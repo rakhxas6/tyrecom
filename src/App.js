@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // components imports
 import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./ScrollToTop";
 import Contact from "./pages/Contact";
@@ -22,6 +21,7 @@ import { FilterProvider } from "./context/FilterContext";
 import { TyreProvider } from "./context/TyreContext";
 import Gallery from "./components/Gallery";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -33,9 +33,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
-            <Route path="/tyres/batteries" element={<Batteries />} />
-            <Route path="/tyres/wheels" element={<Wheels />} />
-            <Route path="/tyres" element={<Tyres />} />
+            <Route path="/products/batteries" element={<Batteries />} />
+            <Route path="/products/wheels" element={<Wheels />} />
+            <Route path="/products/tyres" element={<Tyres />} />
             <Route path="/tyres/:brand/:slug" element={<TyreFullPage />} />
             <Route path="/tyres/types" element={<TyresDropdown />} />
             <Route path="/learn" element={<Learn />} />

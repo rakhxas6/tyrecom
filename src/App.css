@@ -11,3 +11,13 @@ body {
     font-family: "Plus Jakarta Sans", sans-serif;
 }
 
+
+.tyresDropdown #selectorSection section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.tyresDropdown #brandSection section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
