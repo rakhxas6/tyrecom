@@ -1,11 +1,11 @@
 import Breadcrumb from "../components/BreadCrumb";
 import ContactForm from "../components/ContactForm";
+import GoogleMap from "./GoogleMap";
+import NewsLetterSection from "./NewsLetterSection";
 
 const Contact = () => {
   return (
-    <section
-      className="contactPage w-full px-6 py-8 md:px-16 md:py-12 mx-auto space-y-6"
-    >
+    <section className="contactPage w-full px-6 py-8 md:px-16 md:py-12 mx-auto space-y-6 mb-20">
       <Breadcrumb />
 
       <div className="headingContainer">
@@ -16,8 +16,6 @@ const Contact = () => {
       </div>
       <div className="infoSection my-5 space-y-6">
         <div className="contact space-y-2">
-          
-
           <p className="text-gray-700">
             Every day at Kap’sTyres, we strive to be the best we can be. It’s an
             attitude that keeps us focused on the task at hand, knowing that the
@@ -47,6 +45,8 @@ const Contact = () => {
         </div>
       </div>
       <ContactForm />
+      <NewsLetterSection />
+      <GoogleMap/>
     </section>
   );
 };

@@ -1,6 +1,60 @@
-import { FaPhoneAlt, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+//logo Import
+
+// icon Imports
+import {
+  FaPhoneAlt,
+  FaWhatsapp,
+  FaEnvelope,
+  FaFacebookF,
+  FaInstagram,
+} from "react-icons/fa";
+
+// photo imports of tyre
+import mrfTyres from "../assets/tyresCompany/mrfTryes.webp";
+import ceatTyres from "../assets/tyresCompany/CEAT-tyres-logo.webp";
+import YokoHamaTyres from "../assets/tyresCompany/yokohama-tyres-logo.webp";
+import appoloTyres from "../assets/tyresCompany/apollo-tyres-logo.webp";
+import bridgestoneTyres from "../assets/tyresCompany/bridgeStone.png";
+import goodYearTyres from "../assets/tyresCompany/goodYear.png";
+import michelinTyres from "../assets/tyresCompany/michelin-logo.webp";
+
+// tyre
 import triangleTyre from "../assets/tyresCollection/triangle_tyres.png";
+
+// about-us page
 import missionIcon from "../assets/allSeason.png";
+
+const imgSection = [
+  {
+    brand: "MRF",
+    logo: mrfTyres,
+  },
+  {
+    brand: "Apollo",
+    logo: appoloTyres,
+  },
+  {
+    brand: "CEAT",
+    logo: ceatTyres,
+  },
+  {
+    brand: "Yokohama",
+    logo: YokoHamaTyres,
+  },
+  {
+    brand: "GoodYear",
+    logo: goodYearTyres,
+  },
+  {
+    brand: "BridgeStone",
+    logo: bridgestoneTyres,
+  },
+
+  {
+    brand: "Michelin",
+    logo: michelinTyres,
+  },
+];
 
 const tyreInformation = [
   {
@@ -46,7 +100,7 @@ const contactOptions = [
 
 const tyres = [
   {
-    name: "Triangle 215/45r18 Tyre",
+    name: "Triangle 215/45R18 Tyre",
     category: "Tyres",
     brand: "Triangle",
     rimDiameter: "18",
@@ -74,7 +128,15 @@ const diameters = ["13", "14", "15", "16", "17", "18", "19", "20"];
 
 const aspects = ["45", "50", "55", "60", "65", "70", "75"];
 
-const brands = ["MRF", "CEAT", "Yokohama", "Bridgestone", "Apollo", "Michelin"];
+const brands = [
+  "MRF",
+  "Apollo",
+  "CEAT",
+  "Yokohama",
+  "GoodYear",
+  "BridgeStone",
+  "Michelin",
+];
 
 const infoAbout = [
   {
@@ -154,17 +216,17 @@ const photos = [
   {
     src: "https://images.unsplash.com/photo-1743701168206-fec7ca13d651?q=80&w=866&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     height: 4,
-    width: 3,
+    width: 4,
   },
   {
     src: "https://images.unsplash.com/photo-1754404053337-7363006e4391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5OXx8fGVufDB8fHx8fA%3D%3D",
-    height: 2,
-    width: 4,
+    height: 4,
+    width: 6,
   },
   {
     src: "https://plus.unsplash.com/premium_photo-1744395627443-fbe46009acef?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     height: 4,
-    width: 3,
+    width: 6,
   },
   {
     src: "https://images.unsplash.com/photo-1754404053337-7363006e4391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5OXx8fGVufDB8fHx8fA%3D%3D",
@@ -173,8 +235,8 @@ const photos = [
   },
   {
     src: "https://plus.unsplash.com/premium_photo-1744395627443-fbe46009acef?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    height: 1,
-    width: 1,
+    height: 4,
+    width: 6,
   },
   {
     src: "https://images.unsplash.com/photo-1754404053337-7363006e4391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5OXx8fGVufDB8fHx8fA%3D%3D",
@@ -183,8 +245,8 @@ const photos = [
   },
   {
     src: "https://images.unsplash.com/photo-1754404053337-7363006e4391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5OXx8fGVufDB8fHx8fA%3D%3D",
-    height: 1,
-    width: 1,
+    height: 4,
+    width: 6,
   },
   {
     src: "https://plus.unsplash.com/premium_photo-1744395627443-fbe46009acef?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -204,15 +266,39 @@ const photos = [
   },
   {
     src: "https://images.unsplash.com/photo-1754404053337-7363006e4391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5OXx8fGVufDB8fHx8fA%3D%3D",
-    height: 1,
-    width: 1,
+    height: 4,
+    width: 6,
   },
-  
+
   {
     src: "https://images.unsplash.com/photo-1754404053337-7363006e4391?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5OXx8fGVufDB8fHx8fA%3D%3D",
     height: 1,
     width: 1,
   },
+];
+
+
+
+const footerList = [
+  { name: "About Us", path: "/about" },
+  { name: "Contact Us", path: "/contact" },
+];
+const socialLinks = [
+  {
+    name: "Facebook",
+    path: "https://www.facebook.com/",
+    icon: <FaFacebookF />,
+  },
+  {
+    name: "Instagram",
+    path: "https://www.instagram.com/",
+    icon: <FaInstagram />,
+  },
+];
+const productList = [
+  { name: "Wheels", path: "/products/wheels" },
+  { name: "Batteries", path: "/products/batteries" },
+  { name: "Tyres", path: "/products/tyres" },
 ];
 
 export {
@@ -227,4 +313,8 @@ export {
   ourMission,
   contactOptions,
   photos,
+  imgSection,
+  footerList,
+  productList,
+  socialLinks,
 };

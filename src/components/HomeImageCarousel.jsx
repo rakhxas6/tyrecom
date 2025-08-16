@@ -2,8 +2,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
-import img1 from "../assets/homeBanner/1.jpg";
-import img2 from "../assets/homeBanner/2.jpg";
+import img1 from "../assets/homeBanner/demoBanner.jpg";
+import img2 from "../assets/homeBanner/1.jpg";
 
 const HomeImageCarousel = () => {
   const imgSection = [

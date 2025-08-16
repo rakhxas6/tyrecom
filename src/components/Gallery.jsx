@@ -1,9 +1,11 @@
-import React from "react";
-import { photos } from "../constants/Product";
+import React, { useState, useEffect } from "react";
+import { photos as originalPhotos } from "../constants/Product";
 import Masonry from "react-masonry-css";
 import Breadcrumb from "./BreadCrumb";
 
 const GallerySection = () => {
+  const [photos, setPhotos] = useState([]);
+
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,
@@ -11,7 +13,6 @@ const GallerySection = () => {
     500: 1,
   };
 
-  // Get current column count based on screen width
   const getColumnCount = () => {
     const width = window.innerWidth;
     if (width <= 500) return 1;
@@ -20,31 +21,39 @@ const GallerySection = () => {
     return 4;
   };
 
-  // Calculate height based on actual column width
   const getImageHeight = (photo) => {
-    const totalGutter = 12 * (getColumnCount() - 1); // gutter space
+    const totalGutter = 12 * (getColumnCount() - 1);
     const columnWidth =
-      (window.innerWidth - totalGutter - 40) / getColumnCount(); // minus padding (40px approx)
+      (window.innerWidth - totalGutter - 40) / getColumnCount();
 
     if (photo.width && photo.height) {
       return Math.floor((columnWidth * photo.height) / photo.width);
     }
-
-    // Fallback if dimensions are missing
     const heights = [250, 300, 180, 400, 220, 350, 280, 320, 200, 450];
     return heights[photo.id % heights.length];
   };
+
+  // Shuffle photos once on mount
+  useEffect(() => {
+    const shuffled = [...originalPhotos];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    setPhotos(shuffled);
+  }, []);
 
   return (
     <section className="p-5 sm:p-8 mx-auto space-y-6 px-6 py-8 md:px-16 md:py-12">
       <Breadcrumb />
 
       <div className="headingContainer flex flex-col gap-5">
-        <h2 className="font-thin text-3xl  relative">
+        <h2 className="font-thin text-3xl relative">
           Glimpses into our Company{" "}
           <span className="absolute -bottom-2 left-0 w-16 h-1 bg-orange-500 rounded"></span>
         </h2>
       </div>
+
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
@@ -75,15 +84,12 @@ const GallerySection = () => {
       <style jsx>{`
         .my-masonry-grid {
           display: flex;
-          // margin-left: -16px;
           width: auto;
         }
-
         .my-masonry-grid_column {
           padding-left: 1px;
           background-clip: padding-box;
         }
-
         .my-masonry-grid_column > div {
           margin-bottom: 1px;
         }

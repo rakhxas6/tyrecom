@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { FaPlus, FaMinus, FaChevronDown } from "react-icons/fa";
 import { useFilters } from "../../context/FilterContext";
 import { diameters, aspects, widths, brands } from "../../constants/Product";
 
 const SelectorSidebar = () => {
   const navigate = useNavigate();
+  const { brand } = useParams();
 
   const {
     selectedBrand,
@@ -27,13 +28,7 @@ const SelectorSidebar = () => {
 
   // Search for width
   const [widthSearch, setWidthSearch] = useState("");
-
   const filteredWidths = widths.filter((w) => w.includes(widthSearch.trim()));
-
-  // const handleWidthClick = (w) => {
-  //   setSelectedWidth(w);
-  //   navigate(`/tyres#width?selectedWidth=${w}`);
-  // };
 
   return (
     <aside className="w-full space-y-6">
@@ -44,14 +39,18 @@ const SelectorSidebar = () => {
           className="flex justify-between items-center cursor-pointer"
         >
           <span className="font-semibold">Brand</span>
-          {brandOpen ? <FaPlus /> : <FaMinus />}
+          {brandOpen ? (
+            <FaMinus className="text-gray-500" />
+          ) : (
+            <FaPlus className="text-gray-500" />
+          )}
         </div>
         {brandOpen && (
           <div className="mt-2 relative">
             <select
-              value={selectedBrand}
+              value={selectedBrand || brand}
               onChange={(e) => setSelectedBrand(e.target.value)}
-              className="w-full border focus:outline-none focus:ring-2 focus:ring-orange-500  p-2 pr-10 appearance-none"
+              className="w-full border focus:outline-none focus:ring-2 focus:ring-orange-500 p-2 pr-10 appearance-none"
             >
               <option value="">Select Brand</option>
               {brands.map((b) => (
@@ -72,7 +71,11 @@ const SelectorSidebar = () => {
           className="flex justify-between items-center cursor-pointer"
         >
           <span className="font-semibold">Width</span>
-          {widthOpen ? <FaPlus /> : <FaMinus />}
+          {widthOpen ? (
+            <FaMinus className="text-gray-500" />
+          ) : (
+            <FaPlus className="text-gray-500" />
+          )}
         </div>
         {widthOpen && (
           <div className="mt-2 space-y-2">
@@ -89,10 +92,10 @@ const SelectorSidebar = () => {
                   <button
                     key={w}
                     onClick={() => {
-                      setSelectedWidth(w);
-                      setWidthSearch(w);
+                      setWidthSearch(selectedWidth === w ? "" : w);
+                      setSelectedWidth(selectedWidth === w ? "" : w);
                     }}
-                    className={`border  p-2 text-center transition ${
+                    className={`border p-2 text-center transition ${
                       selectedWidth === w
                         ? "bg-orange-500 text-white shadow-lg"
                         : "bg-white hover:bg-orange-100"
@@ -118,15 +121,21 @@ const SelectorSidebar = () => {
           className="flex justify-between items-center cursor-pointer"
         >
           <span className="font-semibold">Diameter</span>
-          {diameterOpen ? <FaPlus /> : <FaMinus />}
+          {diameterOpen ? (
+            <FaMinus className="text-gray-500" />
+          ) : (
+            <FaPlus className="text-gray-500" />
+          )}
         </div>
         {diameterOpen && (
           <div className="grid grid-cols-4 gap-2 mt-2">
             {diameters.map((d) => (
               <button
                 key={d}
-                onClick={() => setSelectedDiameter(d)}
-                className={`border  p-2 text-center ${
+                onClick={() =>
+                  setSelectedDiameter(selectedDiameter === d ? "" : d)
+                }
+                className={`border p-2 text-center ${
                   selectedDiameter === d
                     ? "bg-orange-500 text-white"
                     : "bg-white hover:bg-orange-100"
@@ -146,15 +155,19 @@ const SelectorSidebar = () => {
           className="flex justify-between items-center cursor-pointer"
         >
           <span className="font-semibold">Aspect Ratio</span>
-          {aspectOpen ? <FaPlus /> : <FaMinus />}
+          {aspectOpen ? (
+            <FaMinus className="text-gray-500" />
+          ) : (
+            <FaPlus className="text-gray-500" />
+          )}
         </div>
         {aspectOpen && (
           <div className="grid grid-cols-4 gap-2 mt-2">
             {aspects.map((a) => (
               <button
                 key={a}
-                onClick={() => setSelectedAspect(a)}
-                className={`border  p-2 text-center ${
+                onClick={() => setSelectedAspect(selectedAspect === a ? "" : a)}
+                className={`border p-2 text-center ${
                   selectedAspect === a
                     ? "bg-orange-500 text-white"
                     : "bg-white hover:bg-orange-100"
@@ -167,17 +180,17 @@ const SelectorSidebar = () => {
         )}
       </div>
 
-      {/* CLEAR BUTTON */}
+      {/* SEARCH & CLEAR */}
       <div className="cta flex justify-between">
         <button
-          className="mt-4 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold transition duration-300 shadow-md text-center "
-          onClick={() => {}}
+          className="mt-4 px-6 py-3 shadow-md font-semibold transition duration-300 text-center bg-orange-500 hover:bg-orange-600 text-white cursor-pointer"
+          onClick={() => navigate("/products/tyres")}
         >
           Search
         </button>
 
         <button
-          className="mt-4 px-6 py-3 bg-red-600 hover:bg-red-800 text-white font-semibold transition duration-300 shadow-md text-center "
+          className="mt-4 px-6 py-3 bg-red-600 hover:bg-red-800 text-white font-semibold transition duration-300 shadow-md text-center"
           onClick={() => {
             clearFilters();
             navigate("/products/tyres");

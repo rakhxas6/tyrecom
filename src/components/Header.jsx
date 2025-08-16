@@ -1,13 +1,17 @@
+import { useEffect ,useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Fade as Hamburger } from "hamburger-react";
-import { useState } from "react";
 
+// animation in mobile menu
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+
+// icons
 import { AiOutlineClose } from "react-icons/ai";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
-import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/meadowtyresLogo.png";
+
+//components import
 import SearchBox from "./SearchBox";
 
 
@@ -22,7 +26,6 @@ const Header = () => {
     { name: "Home", path: "/" },
     {
       name: "Products",
-      path: "/products",
       dropdown: [
         { name: "Wheels", path: "/products/wheels" },
         { name: "Batteries", path: "/products/batteries" },
@@ -30,6 +33,7 @@ const Header = () => {
           name: "Tyres",
           path: "/products/tyres",
           dropdown: [
+            { name: "By Size", path: "/tyres/types#size" },
             { name: "By Brands", path: "/tyres/types#brand" },
             { name: "By Diameter", path: "/tyres/types#diameter" },
             { name: "By Width", path: "/tyres/types#width" },
@@ -73,9 +77,9 @@ const Header = () => {
 
   return (
     // bg-[#A2AADB]
-    <section className="border-b-2 border-orange-500 relative z-[100]">
+    <section className="border-b-2  border-orange-500 relative z-[100]">
       {/* Top Navbar */}
-      <div className="flex items-center justify-between w-[90vw] mx-auto">
+      <div className="flex items-center justify-between w-[90vw] mx-auto h-[14vh]">
         <img
           onClick={() => navigate("/")}
           src={logo}
@@ -88,14 +92,14 @@ const Header = () => {
           {navList.map((nav, index) => (
             <li
               key={index}
-              className="relative group font-semibold text-[16px] text-[#5D5524]"
+              className="relative group font-clash text-[18px] text-[#5D5524]"
             >
               <Link
                 to={nav.path}
-                className="flex items-center gap-1 transition-colors duration-200"
+                className="flex items-center transition-colors duration-200"
               >
                 {nav.name}
-                {nav.dropdown && <RiArrowDropDownLine size={22} />}
+                {nav.dropdown && <RiArrowDropDownLine size={22}/>}
               </Link>
 
               {nav.dropdown && (
@@ -133,7 +137,7 @@ const Header = () => {
         </ul>
 
         {/* <SearchBox /> */}
-       <SearchBox/>
+        <SearchBox />
 
         {/* Hamburger Icon */}
         <div className="md:hidden">
@@ -157,7 +161,7 @@ const Header = () => {
           {isOpen && (
             <div
               data-aos="fade-left"
-              className="fixed top-0 right-0 h-[90dvh] w-[75dvw] max-w-xs bg-gray-100 shadow-lg p-6 overflow-y-auto flex flex-col z-[999]"
+              className="fixed top-0 right-0 h-[95dvh] w-[75dvw] max-w-xs bg-gray-100 shadow-lg p-6 overflow-y-auto flex flex-col z-[999]"
             >
               <div className="container flex items-center justify-between">
                 <img
@@ -168,7 +172,7 @@ const Header = () => {
                 />
                 <button
                   onClick={closeMenu}
-                  className="self-end mb-4 text-black transition-all duration-75"
+                  className="  text-black transition-all duration-75"
                   aria-label="Close menu"
                 >
                   <AiOutlineClose
@@ -179,12 +183,12 @@ const Header = () => {
               </div>
 
               {navList.map((nav, index) => (
-                <div key={index} className="text-left mt-1">
+                <div key={index} className="text-left mt-1 font-clash">
                   {/* For dropdown items */}
                   {nav.dropdown ? (
                     <button
                       onClick={() => toggleDropdown(index)}
-                      className="flex w-full text-base font-semibold py-2 px-3 rounded items-center justify-between hover:bg-black hover:text-white transition-all"
+                      className="flex w-full text-base py-2 px-3 rounded items-center justify-between hover:bg-black hover:text-white transition-all"
                       type="button"
                     >
                       {/* Tyres doesn't navigate */}
@@ -204,7 +208,7 @@ const Header = () => {
                     <Link
                       to={nav.path}
                       onClick={closeMenu}
-                      className="flex w-full text-base font-semibold py-2 px-3 rounded items-center justify-between hover:bg-black hover:text-white "
+                      className="flex w-full text-base  py-2 px-3 rounded items-center justify-between hover:bg-black hover:text-white "
                     >
                       <span className="flex items-center gap-1 transition-colors duration-200 ">
                         {nav.name}
@@ -229,7 +233,7 @@ const Header = () => {
                                 onClick={() => {
                                   toggleNestedDropdown(idx);
                                 }}
-                                className="flex w-full py-1 px-3 rounded items-center justify-between hover:bg-black hover:text-white transition-all text-left font-semibold"
+                                className="flex w-full py-1 px-3 rounded items-center justify-between hover:bg-black hover:text-white transition-all text-left "
                                 type="button"
                               >
                                 {item.name}

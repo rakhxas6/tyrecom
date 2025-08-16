@@ -1,37 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import mrfTyres from "../assets/tyresCompany/mrfTryes.webp";
-import ceatTyres from "../assets/tyresCompany/CEAT-tyres-logo.webp";
-import YokoHamaTyres from "../assets/tyresCompany/yokohama-tyres-logo.webp";
-import appoloTyres from "../assets/tyresCompany/apollo-tyres-logo.webp";
+import { imgSection } from "../constants/Product";
 import ContactForm from "./ContactForm";
 import Breadcrumb from "./BreadCrumb";
+import { useFilters } from "../context/FilterContext";
 
 const Wheels = () => {
-   const imgSection = [
-     {
-       companyName: "MRF Tyres",
-       logo: mrfTyres,
-     },
-     {
-       companyName: "Appolo Tyres",
-       logo: appoloTyres,
-     },
-     {
-       companyName: "CEAT Tyres",
-       logo: ceatTyres,
-     },
-     {
-       companyName: "Yokohama Tyres",
-       logo: YokoHamaTyres,
-     },
-   ];
+  const navigate = useNavigate();
 
-     const navigate = useNavigate();
-     const handleNavigate = () => {
-       navigate(`/tyres`);
-     };
-    
-    
+  const { setSelectedBrand } = useFilters();
+
+  const handleNavigate = (tyre) => {
+    setSelectedBrand(tyre);
+    navigate(`/products/tyres`);
+  };
+
   return (
     <div>
       <section className="contactPage w-full px-6 py-8 md:px-16 md:py-12 mx-auto  space-y-5">
@@ -43,16 +25,16 @@ const Wheels = () => {
             Wheels By Brands
             <span className="absolute -bottom-2 left-0 w-16 h-1 bg-orange-500 rounded"></span>
           </h2>
-          <div className="imgContainer grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 space-y-4 place-items-center">
+          <div className="imgContainer grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 space-y-4 place-items-start">
             {imgSection.map((img, index) => (
               <div
                 key={index}
                 className="flex cursor-pointer"
-                onClick={() => handleNavigate()}
+                onClick={() => handleNavigate(img.brand)}
               >
                 <img
                   src={img.logo}
-                  alt={img.companyName}
+                  alt={img.brand}
                   className="h-36 sm:h-44 hover:scale-105 object-contain"
                 />
               </div>

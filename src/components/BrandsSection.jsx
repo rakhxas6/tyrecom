@@ -1,33 +1,16 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import mrfTyres from "../assets/tyresCompany/mrfTryes.webp";
-import ceatTyres from "../assets/tyresCompany/CEAT-tyres-logo.webp";
-import YokoHamaTyres from "../assets/tyresCompany/yokohama-tyres-logo.webp";
-import appoloTyres from "../assets/tyresCompany/apollo-tyres-logo.webp";
+import { imgSection } from "../constants/Product";
+import { useFilters } from "../context/FilterContext";
+
 
 const BrandsSection = () => {
-  const imgSection = [
-    {
-      companyName: "MRF Tyres",
-      logo: mrfTyres,
-    },
-    {
-      companyName: "Appolo Tyres",
-      logo: appoloTyres,
-    },
-    {
-      companyName: "CEAT Tyres",
-      logo: ceatTyres,
-    },
-    {
-      companyName: "Yokohama Tyres",
-      logo: YokoHamaTyres,
-    },
-  ];
-
   const navigate = useNavigate();
-  const handleNavigate = () => {
-    navigate(`/tyres`);
+  const {setSelectedBrand} = useFilters()
+
+  const handleNavigate = (tyre) => {
+    setSelectedBrand(tyre)
+    navigate(`/products/tyres`);
+
   };
 
   return (
@@ -36,16 +19,16 @@ const BrandsSection = () => {
         Tyre by Brands
         <span className="absolute -bottom-3 left-0 w-16 h-1 bg-orange-500 rounded"></span>
       </h1>
-      <div className="imgContainer grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 space-y-4 place-items-start">
+      <div className="imgContainer grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-y-4 place-items-start">
         {imgSection.map((img, index) => (
           <div
             key={index}
             className="flex cursor-pointer"
-            onClick={() => handleNavigate()}
+            onClick={() => handleNavigate(img.brand)}
           >
             <img
               src={img.logo}
-              alt={img.companyName}
+              alt={img.brand}
               className="h-36 sm:h-44 hover:scale-105 object-contain"
             />
           </div>

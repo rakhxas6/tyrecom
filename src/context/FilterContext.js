@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useRef,
+} from "react";
+import { useLocation } from "react-router-dom";
 
 const FilterContext = createContext();
 
@@ -14,6 +21,20 @@ export const FilterProvider = ({ children }) => {
     setSelectedDiameter("");
     setSelectedAspect("");
   };
+
+  const location = useLocation();
+  const prevPathRef = useRef(location.pathname);
+
+  useEffect(() => {
+    // Reset filters only if we are leaving /products/tyres
+    if (
+      prevPathRef.current === "/products/tyres" &&
+      location.pathname !== "/products/tyres"
+    ) {
+      clearFilters();
+    }
+    prevPathRef.current = location.pathname;
+  }, [location.pathname]);
 
   return (
     <FilterContext.Provider

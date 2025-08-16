@@ -1,6 +1,6 @@
 // TyreContext.jsx
 import { createContext, useContext, useState } from "react";
-import { tyres as tyresData } from "../constants/Product"; // your tyres array
+import { tyres as tyresData } from "../constants/Product"; 
 
 const TyreContext = createContext();
 
@@ -35,6 +35,7 @@ export const TyreProvider = ({ children }) => {
       })
     );
   };
+
 
   return (
     <TyreContext.Provider
