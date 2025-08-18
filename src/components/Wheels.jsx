@@ -16,16 +16,16 @@ const Wheels = () => {
 
   return (
     <div>
-      <section className="contactPage w-full px-6 py-8 md:px-16 md:py-12 mx-auto  space-y-5">
+      <section className="wheelsPage w-full px-6  md:px-16 pt-32 pb-12 mx-auto  space-y-5">
         <Breadcrumb />
 
         <div className="headingContainer flex flex-col gap-5 space-y-5 ">
-          <h2 className="font-thin text-3xl   relative">
+          <h2 className="font-thin text-3xl text-gray-800 font-clash relative">
             {/* flex justify-center items-center */}
             Wheels By Brands
             <span className="absolute -bottom-2 left-0 w-16 h-1 bg-orange-500 rounded"></span>
           </h2>
-          <div className="imgContainer grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 space-y-4 place-items-start">
+          <div className="imgContainer grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-fit">
             {imgSection.map((img, index) => (
               <div
                 key={index}

@@ -44,11 +44,11 @@ const GallerySection = () => {
   }, []);
 
   return (
-    <section className="p-5 sm:p-8 mx-auto space-y-6 px-6 py-8 md:px-16 md:py-12">
+    <section className="mx-auto space-y-6 px-6 pt-32 pb-12 md:px-16">
       <Breadcrumb />
 
       <div className="headingContainer flex flex-col gap-5">
-        <h2 className="font-thin text-3xl relative">
+        <h2 className="font-thin text-3xl font-clash text-gray-800 relative">
           Glimpses into our Company{" "}
           <span className="absolute -bottom-2 left-0 w-16 h-1 bg-orange-500 rounded"></span>
         </h2>

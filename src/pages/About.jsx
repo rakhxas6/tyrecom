@@ -4,11 +4,11 @@ import { teamMembers ,ourMission} from "../constants/Product";
 
 const About = () => {
   return (
-    <section className="contactPage w-full  mx-auto px-6 py-8 md:px-16 md:py-12 space-y-6">
+    <section className="contactPage w-full  mx-auto px-6 pt-32 pb-12 md:px-16  space-y-6">
       <Breadcrumb />
 
       <div className="headingContainer flex flex-col gap-5">
-        <h2 className="font-thin text-3xl  relative">
+        <h2 className="font-thin font-clash text-gray-800 text-3xl  relative">
           About Us{" "}
           <span className="absolute -bottom-2 left-0 w-16 h-1 bg-orange-500 rounded"></span>
         </h2>
@@ -22,14 +22,15 @@ const About = () => {
             className="about-img hover:scale-105 transition duration-100"
           />
         </div>
-        <div className="about-right">
-          <h3>ABOUT UNIVERSITY</h3>
-
-          <p>
-            Embark on a transformative educational journey with our university's
-            comprehensive education programs. Our cutting-edge curriculum is
-            designed to empower students with the knowledge, skills, and
-            experiences needed to excel in the dynamic field of education.
+        <div className="about-right space-y-4">
+          <h3 className="font-clash text-2xl">Meadow Tyres</h3>
+          <p className="font-jakarta ">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+            nostrum ipsa nisi exercitationem corrupti voluptate temporibus? Et
+            repudiandae laboriosam dolorem quod nesciunt! Odit blanditiis est
+            alias deleniti excepturi accusantium commodi asperiores! In,
+            voluptate consectetur assumenda labore molestias quos debitis
+            accusantium.
           </p>
         </div>
       </div>
@@ -38,7 +39,7 @@ const About = () => {
       <div className="aboutTeamMembers flex flex-col justify-center items-center gap-14 ">
         {/* Heading */}
         <div>
-          <h3 className="text-3xl font-semibold mb-6 text-gray-800 relative inline-block">
+          <h3 className="text-3xl font-thin font-clash mb-6 text-gray-800 relative inline-block">
             Leadership
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-orange-500 rounded"></span>
           </h3>
@@ -55,7 +56,7 @@ const About = () => {
             .map(({ name, role, img }) => (
               <div
                 key={name}
-                className="team-member flex flex-col items-center bg-white shadow-md p-6  border-r-4 border-orange-500  hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="team-member flex flex-col items-center bg-white shadow-md p-6  border-r-4 border-orange-500  hover:shadow-lg hover:-translate-y-1 transition-all duration-300 font-jakarta"
               >
                 <img
                   src={img}
@@ -81,7 +82,7 @@ const About = () => {
             .map(({ name, role, img }) => (
               <div
                 key={name}
-                className="team-member flex flex-col items-center bg-white shadow-md p-5  border-r-4 border-orange-500  hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="team-member flex flex-col items-center bg-white shadow-md p-5  border-r-4 border-orange-500  hover:shadow-lg hover:-translate-y-1 transition-all duration-300 font-jakarta"
               >
                 <img
                   src={img}
@@ -100,7 +101,7 @@ const About = () => {
       <div className="aboutMission flex flex-col justify-center items-center gap-14">
         {/* Heading */}
         <div>
-          <h3 className="text-3xl font-semibold mb-6 text-gray-800 relative inline-block">
+          <h3 className="text-3xl font-thin font-clash mb-6 text-gray-800 relative inline-block">
             Our Values
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-orange-500 rounded"></span>
           </h3>
@@ -110,7 +111,7 @@ const About = () => {
           {ourMission.map(({ title, desc, image }) => (
             <div
               key={title}
-              className="team-member flex flex-col items-center bg-white shadow-md p-5 border-r-4 border-orange-500  hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="team-member flex flex-col items-center bg-white shadow-md p-5 border-r-4 border-orange-500  hover:shadow-lg hover:-translate-y-1 transition-all duration-300 font-jakarta"
             >
               <img
                 src={image}

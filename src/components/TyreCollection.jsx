@@ -20,7 +20,7 @@ const TyreCollection = () => {
 
   return (
     <section className="w-full  px-6 md:px-16  space-y-10">
-      <h1 className="text-2xl sm:text-3xl font-bold relative">
+      <h1 className="text-3xl font-thin font-clash text-gray-800 relative">
         Latest Tyre Collection
         <span className="absolute -bottom-3 left-0 w-16 h-1 bg-orange-500 rounded"></span>
       </h1>
@@ -28,7 +28,7 @@ const TyreCollection = () => {
         {tyres.map((tyre) => (
           <div
             onClick={() => handleNavigate(tyre)}
-            key={tyre.id}
+            key={tyre.name}
             className="flex flex-col items-center justify-center p-4 border shadow-md hover:shadow-xl transition-shadow duration-300  cursor-pointer"
           >
             <img

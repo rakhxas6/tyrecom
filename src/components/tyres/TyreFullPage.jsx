@@ -28,7 +28,7 @@ const TyreFullPage = () => {
   const tyre = selectedTyre;
 
   return (
-    <section className="mx-auto px-6 py-8 md:px-16 md:py-12  space-y-6">
+    <section className="mx-auto px-6 pt-32 pb-12 md:px-16  space-y-6">
       <div className="dataContainer grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Image Section */}
         <div className="imgContainer max-w-full mx-auto shadow-lg border border-orange-300">

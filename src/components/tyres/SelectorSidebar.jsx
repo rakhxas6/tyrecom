@@ -38,11 +38,11 @@ const SelectorSidebar = () => {
           onClick={() => setBrandOpen((prev) => !prev)}
           className="flex justify-between items-center cursor-pointer"
         >
-          <span className="font-semibold">Brand</span>
+          <span className="font-semibold font-clash">Brand</span>
           {brandOpen ? (
-            <FaMinus className="text-gray-500" />
+            <FaMinus size={14} className="text-gray-500" />
           ) : (
-            <FaPlus className="text-gray-500" />
+            <FaPlus size={14} className="text-gray-500" />
           )}
         </div>
         {brandOpen && (
@@ -50,11 +50,11 @@ const SelectorSidebar = () => {
             <select
               value={selectedBrand || brand}
               onChange={(e) => setSelectedBrand(e.target.value)}
-              className="w-full border focus:outline-none focus:ring-2 focus:ring-orange-500 p-2 pr-10 appearance-none"
+              className="w-full border focus:outline-none focus:ring-2 focus:ring-orange-500 p-2 pr-10 appearance-none font-jakarta font-thin text-gray-700"
             >
               <option value="">Select Brand</option>
               {brands.map((b) => (
-                <option key={b} value={b}>
+                <option key={b} value={b} className="font-thin text-gray-700">
                   {b}
                 </option>
               ))}
@@ -70,11 +70,11 @@ const SelectorSidebar = () => {
           onClick={() => setWidthOpen((prev) => !prev)}
           className="flex justify-between items-center cursor-pointer"
         >
-          <span className="font-semibold">Width</span>
+          <span className="font-semibold font-clash">Width</span>
           {widthOpen ? (
-            <FaMinus className="text-gray-500" />
+            <FaMinus size={14} className="text-gray-500" />
           ) : (
-            <FaPlus className="text-gray-500" />
+            <FaPlus size={14} className="text-gray-500" />
           )}
         </div>
         {widthOpen && (
@@ -84,7 +84,7 @@ const SelectorSidebar = () => {
               placeholder="Search width..."
               value={widthSearch}
               onChange={(e) => setWidthSearch(e.target.value)}
-              className="w-full border p-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full border p-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 font-jakarta"
             />
             <div className="grid grid-cols-3 gap-2">
               {filteredWidths.length > 0 ? (
@@ -95,7 +95,7 @@ const SelectorSidebar = () => {
                       setWidthSearch(selectedWidth === w ? "" : w);
                       setSelectedWidth(selectedWidth === w ? "" : w);
                     }}
-                    className={`border p-2 text-center transition ${
+                    className={`border p-2 text-center font-thin font-jakarta text-gray-700  transition ${
                       selectedWidth === w
                         ? "bg-orange-500 text-white shadow-lg"
                         : "bg-white hover:bg-orange-100"
@@ -105,8 +105,8 @@ const SelectorSidebar = () => {
                   </button>
                 ))
               ) : (
-                <p className="text-xs text-gray-500 col-span-3">
-                  No matches found
+                <p className="text-xs text-gray-500 col-span-3 font-jakarta">
+                  No matches found!!
                 </p>
               )}
             </div>
@@ -120,11 +120,11 @@ const SelectorSidebar = () => {
           onClick={() => setDiameterOpen((prev) => !prev)}
           className="flex justify-between items-center cursor-pointer"
         >
-          <span className="font-semibold">Diameter</span>
+          <span className="font-semibold font-clash">Diameter</span>
           {diameterOpen ? (
-            <FaMinus className="text-gray-500" />
+            <FaMinus size={14} className="text-gray-500" />
           ) : (
-            <FaPlus className="text-gray-500" />
+            <FaPlus size={14} className="text-gray-500" />
           )}
         </div>
         {diameterOpen && (
@@ -135,7 +135,7 @@ const SelectorSidebar = () => {
                 onClick={() =>
                   setSelectedDiameter(selectedDiameter === d ? "" : d)
                 }
-                className={`border p-2 text-center ${
+                className={`border p-2 text-center font-thin text-gray-700 font-jakarta ${
                   selectedDiameter === d
                     ? "bg-orange-500 text-white"
                     : "bg-white hover:bg-orange-100"
@@ -154,11 +154,11 @@ const SelectorSidebar = () => {
           onClick={() => setAspectOpen((prev) => !prev)}
           className="flex justify-between items-center cursor-pointer"
         >
-          <span className="font-semibold">Aspect Ratio</span>
+          <span className="font-semibold font-clash">Aspect Ratio</span>
           {aspectOpen ? (
-            <FaMinus className="text-gray-500" />
+            <FaMinus size={14} className="text-gray-500" />
           ) : (
-            <FaPlus className="text-gray-500" />
+            <FaPlus size={14} className="text-gray-500" />
           )}
         </div>
         {aspectOpen && (
@@ -167,7 +167,7 @@ const SelectorSidebar = () => {
               <button
                 key={a}
                 onClick={() => setSelectedAspect(selectedAspect === a ? "" : a)}
-                className={`border p-2 text-center ${
+                className={`border p-2 text-center font-thin text-gray-700 font-jakarta ${
                   selectedAspect === a
                     ? "bg-orange-500 text-white"
                     : "bg-white hover:bg-orange-100"
@@ -181,16 +181,16 @@ const SelectorSidebar = () => {
       </div>
 
       {/* SEARCH & CLEAR */}
-      <div className="cta flex justify-between">
+      <div className=" cta flex justify-between gap-6">
         <button
-          className="mt-4 px-6 py-3 shadow-md font-semibold transition duration-300 text-center bg-orange-500 hover:bg-orange-600 text-white cursor-pointer"
+          className="w-full mt-4 px-6 py-3 shadow-md font-thin font-clash  tracking-wider  transition duration-300 text-center bg-orange-500 hover:bg-orange-700 text-white cursor-pointer"
           onClick={() => navigate("/products/tyres")}
         >
           Search
         </button>
 
         <button
-          className="mt-4 px-6 py-3 bg-red-600 hover:bg-red-800 text-white font-semibold transition duration-300 shadow-md text-center"
+          className=" w-full mt-4 px-6 py-3 bg-red-600 hover:bg-red-800 text-white font-thin font-clash  tracking-wider transition duration-300 shadow-md text-center"
           onClick={() => {
             clearFilters();
             navigate("/products/tyres");

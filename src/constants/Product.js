@@ -18,6 +18,12 @@ import bridgestoneTyres from "../assets/tyresCompany/bridgeStone.png";
 import goodYearTyres from "../assets/tyresCompany/goodYear.png";
 import michelinTyres from "../assets/tyresCompany/michelin-logo.webp";
 
+// photos of learn
+import allSeason from "../assets/allSeason.png";
+import Winter from "../assets/winter.png";
+import Summer from "../assets/summer.png";
+import loadIndexChart from "../assets/load-index-chart.png";
+
 // tyre
 import triangleTyre from "../assets/tyresCollection/triangle_tyres.png";
 
@@ -280,8 +286,8 @@ const photos = [
 
 
 const footerList = [
-  { name: "About Us", path: "/about" },
-  { name: "Contact Us", path: "/contact" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
 ];
 const socialLinks = [
   {
@@ -301,6 +307,78 @@ const productList = [
   { name: "Tyres", path: "/products/tyres" },
 ];
 
+
+// learn Page
+const seasonTyresInfo = [
+  {
+    img: allSeason,
+    point1:
+      "Perform best in warm weather conditions and reliably in moderate winter conditions.",
+    point2:
+      "Not ideal for those who live where the winters are consistently harsh.",
+    title: "All Season Tyres",
+  },
+  {
+    img: Summer,
+    point1:
+      "Designed specifically for icy, cold, snowy, wet conditions, but also work well in dry conditions.",
+    point2:
+      "Should be removed when the ambient temperature is consistently above 45 degrees F.",
+    title: "Winter Tyres",
+  },
+  {
+    img: Winter,
+
+    point1: "Designed to perform in warm weather.",
+    point2: "Should be removed if it’s consistently below 45 degrees F.",
+    title: "Summer Tyres",
+  },
+];
+
+const tyreInfo = [
+  {
+    term: "Tire Width",
+    description: "Refers to the overall width of the tire in millimeters.",
+  },
+  {
+    term: "Aspect Ratio",
+    description:
+      "The relationship between the tire height and width. In this example, the tire height is approximately 60% of the tire width.",
+  },
+  {
+    term: "Radial",
+    description:
+      "The letter “R” indicates a radial construction of the carcass plies. In a radial tire, the carcass plies run across the tire from lip to lip, helping to provide strength, stability, flexibility, and ride comfort.",
+  },
+  {
+    term: "Wheel Diameter",
+    description:
+      "The number indicates that this tire fits on a wheel with a 16-inch diameter.",
+  },
+  {
+    term: "Load Index",
+    description:
+      "The load index can range from 0 to 279 and indicates how much weight the tire is certified to carry at maximum inflation pressure. Never buy a tire with a lower load index than your vehicle’s original tire. To determine your tire’s load capacity, refer to the load index chart.",
+    image: loadIndexChart,
+  },
+  {
+    term: "Speed Rating*",
+    description:
+      "This is the highest speed at which the tire can operate. Speed ratings range from Q (lowest) to Z (highest) with one exception: the H rating falls between U and V.\n\nTo maintain the speed capability of a vehicle, use replacement tires with ratings equal to or greater than those of the original tires.",
+  },
+  {
+    term: "Mud & Snow",
+    description:
+      "The letters M and S indicate that this tire meets the Rubber Manufacturers Association's standards for a mud and snow tire, making it an all-season tire. The letters can be found in the following combinations: M+S, M/S and M&S.\n\nNote that a separate, severe snow marking appears on winter tires that are designated for severe snow applications.",
+  },
+  {
+    term: "*Note",
+    description:
+      "Exceeding the safe, legal speed limit is neither recommended nor endorsed.",
+  },
+];
+
+
 export {
   tyreInformation,
   widths,
@@ -317,4 +395,6 @@ export {
   footerList,
   productList,
   socialLinks,
+  seasonTyresInfo,
+  tyreInfo,
 };

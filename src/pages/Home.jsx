@@ -6,7 +6,7 @@ import DiscountsPage from "./home/DiscountsPage";
 
 const Home = () => {
   return (
-    <main className="min-h-screen mb-10">
+    <main className="min-h-screen  py-[14vh]">
       <div className="flex flex-col space-y-4">
         <HomeImageCarasoul />
         <SizeSelector />

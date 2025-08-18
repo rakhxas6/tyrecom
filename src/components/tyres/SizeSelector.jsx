@@ -19,7 +19,7 @@ const SizeSelector = () => {
   return (
     <section className="w-full px-6 md:px-16">
       <div className="flex flex-col gap-4 mb-8">
-        <h1 className="text-3xl font-extrabold text-gray-800">
+        <h1 className="text-3xl font-thin font-clash text-gray-800">
           Select Your Tyre Size
         </h1>
 
@@ -29,7 +29,7 @@ const SizeSelector = () => {
             <select
               value={selectedWidth}
               onChange={(e) => setSelectedWidth(e.target.value)}
-              className="w-full border p-3 pr-10 appearance-none shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 cursor-pointer"
+              className="w-full border p-3 pr-10 appearance-none shadow-sm font-jakarta focus:outline-none focus:ring-2 focus:ring-orange-500 cursor-pointer"
             >
               <option value="">Tyre Width</option>
               {widths.map((w) => (
@@ -47,7 +47,7 @@ const SizeSelector = () => {
               value={selectedDiameter}
               onChange={(e) => setSelectedDiameter(e.target.value)}
               disabled={!selectedWidth}
-              className={`w-full border p-3 pr-10 appearance-none shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 ${
+              className={`w-full border p-3 pr-10 appearance-none shadow-sm  font-jakarta focus:outline-none focus:ring-2 focus:ring-orange-500 ${
                 !selectedWidth
                   ? "cursor-not-allowed opacity-50"
                   : "cursor-pointer"
@@ -69,7 +69,7 @@ const SizeSelector = () => {
               value={selectedAspect}
               onChange={(e) => setSelectedAspect(e.target.value)}
               disabled={!selectedDiameter}
-              className={`w-full border p-3 pr-10 appearance-none shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 ${
+              className={`w-full border p-3 pr-10 appearance-none shadow-sm font-jakarta focus:outline-none focus:ring-2 focus:ring-orange-500 ${
                 !selectedDiameter
                   ? "cursor-not-allowed opacity-50"
                   : "cursor-pointer"
@@ -90,7 +90,7 @@ const SizeSelector = () => {
             type="button"
             disabled={!selectedWidth || !selectedDiameter || !selectedAspect}
             onClick={() => navigate("/products/tyres")}
-            className={`py-3 px-6 shadow-md font-semibold transition  ${
+            className={`py-3 px-6 shadow-md font-thin font-clash  tracking-wider transition  ${
               !selectedWidth || !selectedDiameter || !selectedAspect
                 ? "bg-gray-400 cursor-not-allowed text-white"
                 : "bg-orange-500 hover:bg-orange-600 text-white cursor-pointer"

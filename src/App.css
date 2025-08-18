@@ -5,12 +5,9 @@
 html,
 body {
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-body {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    /* background: #f8f9fa; */
-}
 
 
 .tyresDropdown #selectorSection section {
@@ -23,12 +20,8 @@ body {
     padding-right: 0 !important;
 }
 
-h1,h2,h3,h4,h5{
-    font-family: "Plus Jakarta Sans", sans-serif;
-}
 
-/* p,span,a,input,select,option {
-    font-family: "Quicksand", sans-serif;
-    
-} */
-/* font-family: 'Clash Display', sans-serif; */
+.navSection .hoverClass a:hover {
+    color: #f93716;
+    transition: all 200ms;
+}

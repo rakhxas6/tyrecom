@@ -42,8 +42,8 @@ const Header = () => {
       ],
     },
     { name: "Gallery", path: "/gallery" },
-    { name: "About Us", path: "/about" },
-    { name: "Contact Us", path: "/contact" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
     { name: "Learn", path: "/learn" },
   ];
 
@@ -77,7 +77,7 @@ const Header = () => {
 
   return (
     // bg-[#A2AADB]
-    <section className="border-b-2  border-orange-500 relative z-[100]">
+    <section className="border-b-2 fixed bg-white border-orange-500 w-full z-[100] navSection">
       {/* Top Navbar */}
       <div className="flex items-center justify-between w-[90vw] mx-auto h-[14vh]">
         <img
@@ -88,11 +88,11 @@ const Header = () => {
         />
 
         {/* Navlist */}
-        <ul className="hidden md:flex gap-4 list-none items-center justify-center">
+        <ul className="hidden hoverClass md:flex gap-4 list-none items-center justify-center">
           {navList.map((nav, index) => (
             <li
               key={index}
-              className="relative group font-clash text-[18px] text-[#5D5524]"
+              className="relative group font-jakarta text-gray-700"
             >
               <Link
                 to={nav.path}
@@ -161,7 +161,7 @@ const Header = () => {
           {isOpen && (
             <div
               data-aos="fade-left"
-              className="fixed top-0 right-0 h-[95dvh] w-[75dvw] max-w-xs bg-gray-100 shadow-lg p-6 overflow-y-auto flex flex-col z-[999]"
+              className="fixed top-0 right-0 h-full w-[75dvw] max-w-xs bg-gray-100 shadow-lg p-6 overflow-y-auto flex flex-col z-[999]"
             >
               <div className="container flex items-center justify-between">
                 <img
@@ -183,12 +183,12 @@ const Header = () => {
               </div>
 
               {navList.map((nav, index) => (
-                <div key={index} className="text-left mt-1 font-clash">
+                <div key={index} className="text-left mt-1 font-jakarta">
                   {/* For dropdown items */}
                   {nav.dropdown ? (
                     <button
                       onClick={() => toggleDropdown(index)}
-                      className="flex w-full text-base py-2 px-3 rounded items-center justify-between hover:bg-black hover:text-white transition-all"
+                      className="flex w-full  py-2 px-3 rounded items-center justify-between hover:bg-black hover:text-white transition-all"
                       type="button"
                     >
                       {/* Tyres doesn't navigate */}
@@ -208,7 +208,7 @@ const Header = () => {
                     <Link
                       to={nav.path}
                       onClick={closeMenu}
-                      className="flex w-full text-base  py-2 px-3 rounded items-center justify-between hover:bg-black hover:text-white "
+                      className="flex w-full   py-2 px-3 rounded items-center justify-between hover:bg-black hover:text-white "
                     >
                       <span className="flex items-center gap-1 transition-colors duration-200 ">
                         {nav.name}
@@ -219,7 +219,7 @@ const Header = () => {
                   {/* Dropdown menu if applicable */}
                   {nav.dropdown && openDropdownIndex === index && (
                     <div
-                      className={`ml-4 text-sm text-gray-700 space-y-1 transition-all duration-300 overflow-hidden ${
+                      className={`ml-4  text-gray-700 space-y-1 transition-all duration-300 overflow-hidden ${
                         openDropdownIndex === index
                           ? "max-h-96 opacity-100"
                           : "max-h-0 opacity-0"

@@ -27,7 +27,7 @@ const NewsLetterSection = () => {
   };
 
   return (
-    <div className="newsletter bg-gradient-to-b from-red-50 to-white py-12 px-6 ">
+    <div className="newsletter bg-gradient-to-b from-red-50 to-white py-12 px-6 font-jakarta ">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className=" text-xl md:text-3xl font-bold text-gray-700 mb-4">
           Join Our Newsletter
@@ -40,7 +40,7 @@ const NewsLetterSection = () => {
         <form
           ref={form}
           onSubmit={sendEmail}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto"
+          className="flex flex-col sm:flex-row items-center justify-start sm:justify-center gap-4 max-w-xl mx-auto"
         >
           <input
             type="email"
@@ -48,11 +48,11 @@ const NewsLetterSection = () => {
             required
             placeholder="Enter your email"
             aria-label="Email Address"
-            className="w-full px-8 py-3  border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            className="w-full px-8 py-3 border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           <button
             type="submit"
-            className=" px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold  shadow-lg transition duration-300 transform hover:-translate-y-1"
+            className="w-full sm:w-auto px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold  shadow-lg transition duration-300"
           >
             Subscribe
           </button>

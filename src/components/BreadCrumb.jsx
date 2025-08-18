@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { LuArrowRight } from "react-icons/lu";
 
 const Breadcrumb = () => {
   const location = useLocation();
@@ -9,13 +10,10 @@ const Breadcrumb = () => {
 
   return (
     <nav aria-label="Breadcrumb">
-      <ol className="flex items-center gap-1 text-sm text-orange-400 ">
+      <ol className="flex items-center gap-1 text-sm text-gray-400 uppercase ">
         {/* Home link */}
         <li>
-          <Link
-            to="/"
-            className="transition-colors hover:text-gray-900"
-          >
+          <Link to="/" className="transition-colors hover:text-gray-900">
             Home
           </Link>
         </li>
@@ -31,31 +29,18 @@ const Breadcrumb = () => {
             .replace(/\b\w/g, (c) => c.toUpperCase());
 
           return (
-            <li key={index} className="flex items-center">
+            <li key={index} className="flex items-center gap-1">
               {/* Separator icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-4 mx-1"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 
-                     7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 
-                     1.414l-4 4a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <LuArrowRight size={10} />
 
               {isLast ? (
-                <span className=" text-orange-400 hover:text-gray-900">
+                <span className="">
                   {label}
                 </span>
               ) : (
                 <Link
                   to={routeTo}
-                  className="transition-colors hover:text-gray-900 "
+                  className="transition-colors duration-100 hover:text-gray-900 "
                 >
                   {label}
                 </Link>

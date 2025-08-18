@@ -32,7 +32,7 @@ const SearchBox = () => {
           type="text"
           name="search"
           placeholder="Search for Products"
-          className="SearchInput w-full pl-10 pr-4 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-orange-500"
+          className="SearchInput w-full pl-10 pr-4 py-2 border border-gray-300 font-jakarta focus:outline-none focus:ring-2 focus:ring-orange-500"
         />
         <FiSearch className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400" />
       </div>
@@ -52,11 +52,11 @@ const SearchBox = () => {
                   alt={tyre.name}
                   className="w-10 h-10 object-contain"
                 />
-                <span className="text-gray-700 text-xs">{tyre.name}</span>
+                <span className="text-gray-700 text-xs font-clash">{tyre.name}</span>
               </div>
             ))
           ) : (
-            <div className="px-4 py-2 text-gray-500">No tyres found</div>
+            <div className="px-4 py-2 text-gray-500 font-clash">No tyres found</div>
           )}
         </div>
       )}

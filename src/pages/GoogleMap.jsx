@@ -2,7 +2,7 @@ function GoogleMap() {
   return (
     <div className="w-full h-[400px] space-y-10">
       <div className="headingContainer">
-        <h2 className="font-thin text-3xl relative">
+        <h2 className="font-thin text-3xl relative font-clash">
           Our Location
           <span className="absolute -bottom-2 left-0 w-16 h-1 bg-orange-500 rounded"></span>
         </h2>
@@ -15,6 +15,7 @@ function GoogleMap() {
         style={{ border: 0 }}
         allowFullScreen=""
         loading="lazy"
+        className="font-clash rounded-none"
       ></iframe>
     </div>
   );

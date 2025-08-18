@@ -26,7 +26,7 @@ const HomeImageCarousel = () => {
         {imgSection.map((item) => (
           <div
             key={item.id}
-            className="w-full h-[300px] sm:h-[400px] md:h-screen"
+            className="w-full h-[350px] sm:h-[450px] md:h-screen"
           >
             <img
               src={item.img}

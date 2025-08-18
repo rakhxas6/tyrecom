@@ -20,11 +20,11 @@ const Batteries = () => {
 
   return (
     <div>
-      <section className="contactPage w-full px-6 py-8 md:px-16 md:py-12 mx-auto space-y-5">
+      <section className="contactPage w-full px-6  md:px-16 pt-32 pb-12 mx-auto space-y-5">
         <Breadcrumb />
 
         <div className="headingContainer flex flex-col gap-5 space-y-5 ">
-          <h2 className="font-thin text-3xl  relative">
+          <h2 className="font-thin font-clash text-gray-800 text-3xl  relative">
             Batteries
             {/* flex justify-center items-center */}
             <span className="absolute -bottom-2 left-0 w-16 h-1 bg-orange-500 rounded"></span>
@@ -37,7 +37,9 @@ const Batteries = () => {
                   alt={battery.name}
                   className="w-full h-full"
                 />
-                <span className="font-thin text-xl mt-2">{battery.name}</span>
+                <span className="font-thin font-jakarta text-xl mt-2">
+                  {battery.name}
+                </span>
               </div>
             ))}
           </div>
